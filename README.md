@@ -2,10 +2,13 @@
 
 Fuente de verdad de la ropa de **NiDeBlas (NDB)** para generar imágenes y vídeo con IA de forma consistente y realista: catálogo, colores, logo, medidas, etiquetas y plantillas de prompt.
 
+> **¿Quieres generar imágenes nuevas?** Sigue el [procedimiento paso a paso](PROCEDIMIENTO.md).
+
 ## Qué hay aquí
 
 | Ruta | Para qué |
 |---|---|
+| `PROCEDIMIENTO.md` | Guía paso a paso para generar, optimizar y publicar las imágenes |
 | `ndb-garments/` | **Skill** para Claude Code / Claude (`SKILL.md` + `references/`) |
 | `outputs/` | Imágenes generadas y aprobadas por prenda: grid + cada vista suelta en WebP con nombre SEO (`camiseta-calle-blanca-frontal.webp`) y `alt-text.csv` |
 | `NDB_KIT_MAESTRO.md` | Todo el contenido en un solo archivo, para pegar en cualquier modelo (Midjourney, Flux, Veo, Kling, Runway, etc.) |
