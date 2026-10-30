@@ -9,13 +9,13 @@ Borrador del 30/10/2026 para revisar entre Pablo, Omar y Javier. Si algo no enca
 - **Idea central:** **"No vuela. Corre."** El avestruz no puede volar y es el ave más rápida en tierra. Encaja con "¿Rendirte? Ni de blas".
 - **Base del contenido:** Javier entrenando, en vídeo real. La IA sirve para mover prendas y crear planos de apoyo.
 - **Higgsfield:** recomendamos **Plus mensual** (1.000 créditos, 49 $/mes más impuestos) para el primer mes. Da para unos 11 vídeos con IA más la prueba de modelos, con un margen del 16 %.
-- **Fecha clave:** la bio de Instagram marca **13/11/2026**, a 14 días de hoy. Hay que confirmarla: todo el calendario depende de ella.
+- **Fecha clave:** el lanzamiento está confirmado para el **viernes 13/11/2026**, a 14 días de hoy.
 
 ## Decisiones pendientes
 
 | # | Decisión | Quién | Fecha límite |
 |---|---|---|---|
-| 1 | ¿El 13/11 es el lanzamiento y el stock llega a tiempo? | Javier | 31/10 |
+| 1 | ¿El stock llega a tiempo para el 13/11? | Javier | 31/10 |
 | 2 | Qué prendas se venden el primer día | Javier y Omar | 31/10 |
 | 3 | Contratar Higgsfield Plus (ver apartado 6) | Pablo y Javier | 31/10 |
 | 4 | Fondo de catálogo: blanco puro o gris `#E9E9EC` del procedimiento | Omar y Javier | 31/10 |
@@ -62,7 +62,7 @@ La serie TS-06 en talla M ya está hecha (`e5c1396`). Gracias, Omar.
 - [ ] **Prueba final:** hacer una compra real con devolución antes de abrir.
 - [ ] **Marca:** confirmar que NiDeBlas está registrada antes de seguir usando ®.
 
-**Control el 9/11:** si no hay stock, compra de prueba correcta y legales publicados, se mueve la fecha. Es mejor retrasar unos días que abrir con fallos.
+**Control el 9/11:** la fecha está confirmada, pero ese día revisamos stock, compra de prueba y legales. Si algo falla, se arregla antes del 13/11; si no da tiempo, Javier decide si se abre la venta más tarde. Es mejor retrasarla unos días que abrir con fallos.
 
 ## 4. Posicionamiento
 
@@ -227,7 +227,7 @@ Precios sin impuestos. El plan gratuito actual tiene 0 créditos y, según Higgs
 
 ## 7. Calendario
 
-Fechas sujetas a la decisión 1.
+Lanzamiento confirmado: viernes 13/11/2026.
 
 ### Antes de publicar
 
@@ -331,7 +331,7 @@ Regla semanal: repetir lo que esté por encima de nuestra media y descartar lo q
 
 | Riesgo | Respuesta |
 |---|---|
-| El stock o la web no llegan al 13/11 | Control del 9/11 y fecha alternativa |
+| El stock o la web no llegan al 13/11 | Control del 9/11 y plan para abrir la venta más tarde |
 | El logo se deforma en vídeo | Imagen de inicio aprobada, planos cortos y revisión manual |
 | El contenido parece hecho con IA | Más peso de vídeo real; la IA solo como apoyo |
 | Se agotan los créditos | Bajar de modelo o subir a Ultra tras la primera semana |
