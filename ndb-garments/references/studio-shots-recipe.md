@@ -14,6 +14,8 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 4. Usar la **URL del frontal aprobado** como referencia 1 en el resto de vistas (mantiene prenda, luz y fondo).
 5. Revisar con el checklist QA del playbook y entregar según la regla de entrega.
 
+> **Talla M obligatoria.** Añadir a cada prompt las medidas M del SKU y que la etiqueta de cuello diga `NIDEBLAS M`. En el piloto TS-06 la etiqueta salió con `XL` porque la foto de referencia era XL: hay que corregirlo en el prompt (`label reads M`) y regenerar.
+
 ## Prompts por vista (sustituir [PRENDA] y color del hilo)
 - **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, seamless light-gray background (#E9E9EC), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape. No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`
 - **Trasera:** `Same exact [PRENDA] as reference 1, seen from the BACK, ghost mannequin, same lighting, background and scale. Plain back, NO logo/print/text (salvo SW-04 y TS-10, que tienen espalda propia). Back neckline with black neck tape visible.`

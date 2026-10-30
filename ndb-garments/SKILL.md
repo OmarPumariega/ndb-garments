@@ -21,6 +21,7 @@ Cualquier tarea que muestre una prenda NDB: foto de producto, lookbook, modelo v
 8. **Entrega siempre un grid con todas las vistas y cada vista por separado**, numeradas, en `outputs/<SKU>_<nombre>/`, en WebP con nombre SEO y alt-text. Receta completa y probada en `references/studio-shots-recipe.md`.
 
 ## Reglas que nunca se rompen
+- **Talla M siempre** en camisetas y sudaderas: medidas de la talla M y etiqueta de cuello con la letra M (ver `size-charts.md`).
 - El logo es el avestruz corriendo, **cabeza mirando a la derecha del dibujo**, tal como en el techpack; no rotar, no espejar, no cambiar la silueta ni añadir texto.
 - El wordmark es **NIDEBLAS** en mayúsculas, condensada, cursiva y negrita; la versión de camisetas bordadas/etiquetas de composición usa esa; la versión mixta `NiDeBlas` aparece en nuca trasera, colgante y camiseta Carbono.
 - Camisetas Calle y sudadera marino llevan el logo **bordado** (relieve de hilo, sin brillo plástico). Las sudaderas de logo grande lo llevan en **flock/terciopelo mate** (textura aterciopelada).

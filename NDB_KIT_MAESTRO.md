@@ -250,6 +250,21 @@ Circunferencia de pecho: XS 91 · S 96 · M 101. Hombro 39 en S → **corte enta
 ## Orden de tallas por familia
 Sudadera: XS S M L XL · Camiseta Calle: S M L XL · Carbono: S M L XL · Deporte H: S M L · Deporte M: XS S M. Las tallas no listadas (XXS, XXL…) no tienen medidas: no generar modelos con tallas fuera de estos rangos.
 
+## Talla de referencia para toda imagen: **M** (regla fija)
+Toda imagen de producto (frontal, trasera, lateral, flatlay y detalles) se genera **en talla M** y con los datos de la talla M de su tabla. La etiqueta de cuello visible debe decir **M** (`NIDEBLAS  M`), nunca XL u otra. Solo se cambia de talla si el usuario lo pide expresamente.
+
+Datos M para el prompt (cm, prenda plana):
+
+| Prenda | Pecho | Largo total | Hombro | Manga | Circ. pecho | Lectura de fit |
+|---|---|---|---|---|---|---|
+| Sudadera Calle | 54 | 68 | 45 | 66 | 108 | regular-relajado, largo cadera alta, rib ceñido |
+| Camiseta Calle (TS-05/06/07/08/09/13) | 52,5 | 71 | 46 | 21,5 | 105 | recta, sin cintura, manga corta |
+| Camiseta Calle Carbono (TS-10) | 55,5 | 69 | 48 | 22 | 111 | boxy, hombro caído, la más oversize |
+| Deporte Hombre (SP-12) | 52,5 | 73 espalda / 67,5 frente | n/d | 23 | 105 | atlético regular, bajo curvo |
+| Deporte Mujer (SP-11) | 50,5 | 63 frente / 64 espalda | 40,5 | 18,1 | 101 | entallado, manga corta tipo cap |
+
+Frase tipo para añadir al prompt: `Size M. Flat chest width [X] cm, body length [Y] cm, shoulder [Z] cm, sleeve [W] cm. Neck label reads "NIDEBLAS M".`
+
 ---
 
 # Etiquetas y complementos
@@ -342,6 +357,9 @@ Convierte los HEIC a JPG/PNG antes de subirlos a un modelo (la mayoría de herra
 
 Escribe los prompts finales en **inglés** (los modelos responden mejor); la conversación con el usuario, en español.
 
+## Talla por defecto: M
+Siempre se genera en **talla M** (camisetas y sudaderas), con las medidas M de `size-charts.md` y la etiqueta de cuello `NIDEBLAS  M`. Ver `size-charts.md` → "Talla de referencia".
+
 ## Principios de consistencia
 1. **Ancla visual > texto.** Sube siempre como referencia: lámina del techpack del SKU, foto plana real de la prenda, logo aislado. Di en el prompt qué hace cada referencia ("image 1 = garment, image 2 = logo placement").
 2. **Una prenda, una ficha.** Pega el Prompt-ficha del SKU sin parafrasear. Cambia solo escena, pose y luz.
@@ -353,14 +371,14 @@ Escribe los prompts finales en **inglés** (los modelos responden mejor); la con
 ## Plantilla A · Foto de producto (ghost mannequin / plano)
 ```
 Studio e-commerce photo, front view, [GARMENT PROMPT-FICHA], laid flat / on invisible mannequin, soft diffused light, seamless light-gray background (#E9E9EC), natural fabric texture visible (cotton jersey weave / heavy interlock), crisp seams, accurate color, shot at 85 mm, no props.
-Proportions: chest width [PEITO] cm flat, body length [LARGO] cm, sleeve [MANGA] cm, shoulder-to-shoulder [HOMBRO] cm (size [TALLA]).
+Proportions: chest width [PEITO] cm flat, body length [LARGO] cm, sleeve [MANGA] cm, shoulder-to-shoulder [HOMBRO] cm (size M).
 References: image 1 = real garment; image 2 = logo, keep exact silhouette and placement.
 Negative: wrong logo shape, mirrored logo, extra text, extra graphics, blurry embroidery, plastic shine on embroidery, misspelled NIDEBLAS, wrinkled distortion, brand logos of other companies, extra pockets, drawstrings (on sweatshirts).
 ```
 
 ## Plantilla B · Modelo vistiendo la prenda (lifestyle)
 ```
-[Shot type: full-body / three-quarter / waist-up] photo of [MODEL: gender, age, height, build, hair, skin tone] wearing [GARMENT PROMPT-FICHA] in size [TALLA] (chest circumference [PEITO×2] cm vs model chest [X] cm → [relaxed/regular/fitted] fit), [POSE], [SCENE: e.g. Asturian coastline, grey sea, wet stone, soft overcast light], natural skin texture, shallow depth of field, 35 mm, editorial streetwear look.
+[Shot type: full-body / three-quarter / waist-up] photo of [MODEL: gender, age, height, build, hair, skin tone] wearing [GARMENT PROMPT-FICHA] in size M (chest circumference [PEITO×2] cm vs model chest [X] cm → [relaxed/regular/fitted] fit), [POSE], [SCENE: e.g. Asturian coastline, grey sea, wet stone, soft overcast light], natural skin texture, shallow depth of field, 35 mm, editorial streetwear look.
 The logo must read clearly and in the exact position: [POSICIÓN DEL LOGO].
 Negative: oversized if not specified, wrong sleeve length, logo too big, logo centered if it should be on the left chest, text artifacts, warped hands.
 ```
@@ -429,6 +447,8 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 3. Generar primero el **frontal** con refs: foto completa + macro del bordado + cuello.
 4. Usar la **URL del frontal aprobado** como referencia 1 en el resto de vistas (mantiene prenda, luz y fondo).
 5. Revisar con el checklist QA del playbook y entregar según la regla de entrega.
+
+> **Talla M obligatoria.** Añadir a cada prompt las medidas M del SKU y que la etiqueta de cuello diga `NIDEBLAS M`. En el piloto TS-06 la etiqueta salió con `XL` porque la foto de referencia era XL: hay que corregirlo en el prompt (`label reads M`) y regenerar.
 
 ## Prompts por vista (sustituir [PRENDA] y color del hilo)
 - **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, seamless light-gray background (#E9E9EC), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape. No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`

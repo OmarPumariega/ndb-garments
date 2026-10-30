@@ -2,6 +2,9 @@
 
 Escribe los prompts finales en **inglés** (los modelos responden mejor); la conversación con el usuario, en español.
 
+## Talla por defecto: M
+Siempre se genera en **talla M** (camisetas y sudaderas), con las medidas M de `size-charts.md` y la etiqueta de cuello `NIDEBLAS  M`. Ver `size-charts.md` → "Talla de referencia".
+
 ## Principios de consistencia
 1. **Ancla visual > texto.** Sube siempre como referencia: lámina del techpack del SKU, foto plana real de la prenda, logo aislado. Di en el prompt qué hace cada referencia ("image 1 = garment, image 2 = logo placement").
 2. **Una prenda, una ficha.** Pega el Prompt-ficha del SKU sin parafrasear. Cambia solo escena, pose y luz.
@@ -13,14 +16,14 @@ Escribe los prompts finales en **inglés** (los modelos responden mejor); la con
 ## Plantilla A · Foto de producto (ghost mannequin / plano)
 ```
 Studio e-commerce photo, front view, [GARMENT PROMPT-FICHA], laid flat / on invisible mannequin, soft diffused light, seamless light-gray background (#E9E9EC), natural fabric texture visible (cotton jersey weave / heavy interlock), crisp seams, accurate color, shot at 85 mm, no props.
-Proportions: chest width [PEITO] cm flat, body length [LARGO] cm, sleeve [MANGA] cm, shoulder-to-shoulder [HOMBRO] cm (size [TALLA]).
+Proportions: chest width [PEITO] cm flat, body length [LARGO] cm, sleeve [MANGA] cm, shoulder-to-shoulder [HOMBRO] cm (size M).
 References: image 1 = real garment; image 2 = logo, keep exact silhouette and placement.
 Negative: wrong logo shape, mirrored logo, extra text, extra graphics, blurry embroidery, plastic shine on embroidery, misspelled NIDEBLAS, wrinkled distortion, brand logos of other companies, extra pockets, drawstrings (on sweatshirts).
 ```
 
 ## Plantilla B · Modelo vistiendo la prenda (lifestyle)
 ```
-[Shot type: full-body / three-quarter / waist-up] photo of [MODEL: gender, age, height, build, hair, skin tone] wearing [GARMENT PROMPT-FICHA] in size [TALLA] (chest circumference [PEITO×2] cm vs model chest [X] cm → [relaxed/regular/fitted] fit), [POSE], [SCENE: e.g. Asturian coastline, grey sea, wet stone, soft overcast light], natural skin texture, shallow depth of field, 35 mm, editorial streetwear look.
+[Shot type: full-body / three-quarter / waist-up] photo of [MODEL: gender, age, height, build, hair, skin tone] wearing [GARMENT PROMPT-FICHA] in size M (chest circumference [PEITO×2] cm vs model chest [X] cm → [relaxed/regular/fitted] fit), [POSE], [SCENE: e.g. Asturian coastline, grey sea, wet stone, soft overcast light], natural skin texture, shallow depth of field, 35 mm, editorial streetwear look.
 The logo must read clearly and in the exact position: [POSICIÓN DEL LOGO].
 Negative: oversized if not specified, wrong sleeve length, logo too big, logo centered if it should be on the left chest, text artifacts, warped hands.
 ```

@@ -119,3 +119,18 @@ Circunferencia de pecho: XS 91 · S 96 · M 101. Hombro 39 en S → **corte enta
 
 ## Orden de tallas por familia
 Sudadera: XS S M L XL · Camiseta Calle: S M L XL · Carbono: S M L XL · Deporte H: S M L · Deporte M: XS S M. Las tallas no listadas (XXS, XXL…) no tienen medidas: no generar modelos con tallas fuera de estos rangos.
+
+## Talla de referencia para toda imagen: **M** (regla fija)
+Toda imagen de producto (frontal, trasera, lateral, flatlay y detalles) se genera **en talla M** y con los datos de la talla M de su tabla. La etiqueta de cuello visible debe decir **M** (`NIDEBLAS  M`), nunca XL u otra. Solo se cambia de talla si el usuario lo pide expresamente.
+
+Datos M para el prompt (cm, prenda plana):
+
+| Prenda | Pecho | Largo total | Hombro | Manga | Circ. pecho | Lectura de fit |
+|---|---|---|---|---|---|---|
+| Sudadera Calle | 54 | 68 | 45 | 66 | 108 | regular-relajado, largo cadera alta, rib ceñido |
+| Camiseta Calle (TS-05/06/07/08/09/13) | 52,5 | 71 | 46 | 21,5 | 105 | recta, sin cintura, manga corta |
+| Camiseta Calle Carbono (TS-10) | 55,5 | 69 | 48 | 22 | 111 | boxy, hombro caído, la más oversize |
+| Deporte Hombre (SP-12) | 52,5 | 73 espalda / 67,5 frente | n/d | 23 | 105 | atlético regular, bajo curvo |
+| Deporte Mujer (SP-11) | 50,5 | 63 frente / 64 espalda | 40,5 | 18,1 | 101 | entallado, manga corta tipo cap |
+
+Frase tipo para añadir al prompt: `Size M. Flat chest width [X] cm, body length [Y] cm, shoulder [Z] cm, sleeve [W] cm. Neck label reads "NIDEBLAS M".`
