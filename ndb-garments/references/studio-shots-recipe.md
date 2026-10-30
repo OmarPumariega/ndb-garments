@@ -30,4 +30,4 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 - Resolución de salida ~900×1200: subir a 2K para web con reescalado antes de publicar.
 
 ## Entrega
-Grid único + cada vista suelta, numeradas, en `outputs/<SKU>_<nombre>/` (ver playbook).
+Grid + cada vista suelta en **WebP** con **nombre SEO** (`<tipo>-<modelo>-<color>-<vista>.webp`) y `alt-text.csv`, en `outputs/<SKU>_<nombre>/`. Reglas completas en el playbook. En el piloto TS-06 el peso bajó de ~300–600 KB (JPG) a 13–58 KB por imagen.

@@ -59,6 +59,15 @@ Congela escena + modelo + pose y cambia **solo** el bloque "[GARMENT PROMPT-FICH
 
 ## Entrega de resultados (regla fija)
 Cada vez que se genere una serie de imágenes de una prenda se entregan SIEMPRE:
-1. **Un grid** con todas las vistas en una sola imagen (`<SKU>_00_grid.jpg`), para revisión rápida.
-2. **Cada vista por separado**, en archivo individual listo para la web, numerado y con nombre en español: `<SKU>_01_frontal`, `_02_trasera`, `_03_lateral`, `_04_flatlay`, `_05_detalle-logo`, `_06_detalle-cuello`.
+1. **Un grid** con todas las vistas en una sola imagen, para revisión rápida.
+2. **Cada vista por separado**, optimizada para web.
 3. Guardadas en `outputs/<SKU>_<nombre-prenda>/`.
+
+**Formato web:** WebP, calidad 82 (`method=6`), sin reescalar salvo petición. Convertir con Pillow: `im.save(nombre, 'WEBP', quality=82, method=6)`. Entregar solo los `.webp` (los JPG originales no se guardan en el repo).
+
+**Nombre SEO** (minúsculas, sin tildes ni espacios, guiones): `<tipo-de-prenda>-<modelo>-<color>-<vista>.webp`
+- Ejemplos: `camiseta-calle-blanca-frontal.webp`, `camiseta-calle-blanca-detalle-logo.webp`, `sudadera-calle-celeste-trasera.webp`, `camiseta-deporte-hombre-verde-menta-flatlay.webp`.
+- Vistas: `frontal`, `trasera`, `lateral`, `flatlay`, `detalle-logo`, `detalle-cuello`, `grid`.
+- Si hay dos estilos de la misma prenda, añadir el rasgo distintivo antes de la vista (`sudadera-calle-crema-logo-fucsia-frontal.webp`).
+
+**Texto alternativo:** generar siempre `alt-text.csv` en la carpeta (columnas `archivo,alt`), en español, describiendo prenda, color, vista y logo. No incluir el grid.
