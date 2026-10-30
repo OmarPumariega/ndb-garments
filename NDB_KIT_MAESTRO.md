@@ -483,6 +483,7 @@ swiftc -O tools/ocr_labels.swift -o /tmp/ocr_labels
 ```
 - `OK` = lee NIDEBLAS. `SOSPECHOSO: NIGEBLAS` (u otra variante) = **regenerar**.
 - `NO` sin sospechosos = etiqueta ilegible (poco tamaño): subir resolución o ampliar la etiqueta; no se da por buena sin mirar un recorte (`OCR_CROPS=/tmp/crops` guarda recortes ampliados).
+- `SOSPECHOSO` puede ser un falso positivo con letra muy pequeña (p. ej. `HIDEBLAS` por una N mal ampliada) y `NO` puede ser un falso negativo con etiqueta negra sobre tela oscura/azul: en ambos casos se mira el recorte ampliado (`OCR_CROPS=/tmp/crops /tmp/ocr_labels imagen.jpg`) y se decide a ojo. Se aprueba solo con `OK` o con recorte verificado visualmente.
 - La vista trasera no lleva etiqueta visible por fuera: no se comprueba.
 - Ocurrió en TS-09 verde (`NIGEBLAS` en frontal, flatlay y detalle de cuello) y en TS-08 flatlay.
 
