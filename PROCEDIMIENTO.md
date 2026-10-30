@@ -130,7 +130,8 @@ Si el trabajo revela un dato nuevo (color real, medida, etiqueta, error), edíta
 | Problema | Solución |
 |---|---|
 | El logo sale más detallado o con otra silueta | Añadir referencia del macro real; repetir con prompt corto sobre el logo |
-| Etiqueta con talla distinta de M | Añadir `neck label reads "NIDEBLAS M"` y regenerar |
+| Etiqueta con talla distinta de M | Añadir `neck label reads "NIDEBLAS M"` y `ignore the size letter in the photo`; regenerar |
+| Macro del logo sale sobre tela crema | Pedir `PURE WHITE ... not cream or beige` |
 | Espalda o lateral inventados | Seguro solo en prendas con espalda lisa; en SW-04 y TS-10 usar referencia propia |
 | Fondo del flatlay más oscuro | Forzar `#E9E9EC` y luz difusa |
 | Imagen recortada por arriba | Pedir margen generoso alrededor de la prenda |
@@ -139,5 +140,5 @@ Si el trabajo revela un dato nuevo (color real, medida, etiqueta, error), edíta
 
 ## Pendientes conocidos
 - Validar el logo contra el vectorial oficial.
-- Regenerar la camiseta blanca TS-06 en talla M (la serie actual muestra `XL` en la etiqueta).
 - Fotos con persona y de espalda para mejorar el realismo del fit (ver `open-questions.md`).
+- Subir las imágenes a 2K antes de publicar.

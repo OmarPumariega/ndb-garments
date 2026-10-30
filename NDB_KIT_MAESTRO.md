@@ -448,7 +448,7 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 4. Usar la **URL del frontal aprobado** como referencia 1 en el resto de vistas (mantiene prenda, luz y fondo).
 5. Revisar con el checklist QA del playbook y entregar según la regla de entrega.
 
-> **Talla M obligatoria.** Añadir a cada prompt las medidas M del SKU y que la etiqueta de cuello diga `NIDEBLAS M`. En el piloto TS-06 la etiqueta salió con `XL` porque la foto de referencia era XL: hay que corregirlo en el prompt (`label reads M`) y regenerar.
+> **Talla M obligatoria.** Añadir a cada prompt las medidas M del SKU y que la etiqueta de cuello diga `NIDEBLAS M`. En el piloto TS-06 la etiqueta salió con `XL` porque la foto de referencia era XL: corregido en la regeneración con `neck label reads M (not XL)` en frontal, flatlay y detalle de cuello.
 
 ## Prompts por vista (sustituir [PRENDA] y color del hilo)
 - **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, seamless light-gray background (#E9E9EC), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape. No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`
@@ -459,6 +459,8 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 - **Detalle cuello (4:5):** `Close-up of the neckline: ribbed crew collar, black woven neck label with white italic condensed "NIDEBLAS" and size, black neck tape along the inner edge. Soft diffused light, clean light-gray background.`
 
 ## Qué vigilar (aprendido en el piloto)
+- **Macro del logo en tejido blanco:** pedir `PURE WHITE ... not cream or beige`, o sale sobre crema.
+- **Etiqueta:** si la referencia muestra otra talla, indicar explícitamente `ignore the size letter in the photo; use M`.
 - El **logo** sale algo más detallado que el real: validar siempre contra el logo vector.
 - La **trasera y el lateral** los inventa el modelo si no hay foto real; seguros en prendas con espalda lisa.
 - El **fondo del flatlay** tiende a salir más oscuro: pedir `#E9E9EC` y revisar.
