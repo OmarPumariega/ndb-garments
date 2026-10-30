@@ -3,6 +3,8 @@
 Guía para repetir el proceso con cualquier prenda y obtener siempre el mismo resultado: imágenes de estudio listas para la web (frontal, trasera, lateral, flatlay, detalle de logo y detalle de cuello). Probado con la camiseta Calle blanca (TS-06).
 
 ## Reglas fijas (resumen)
+- **Etiqueta siempre `NIDEBLAS` bien escrita** (N-I-D-E-B-L-A-S + `M`): referencia de etiqueta + bloque de ortografía + verificación OCR.
+- **Resolución 2K** en todas las imágenes.
 - **Talla M siempre** en camisetas y sudaderas, con las medidas M y la etiqueta de cuello `NIDEBLAS M`.
 - **Una prenda, una ficha:** no mezclar datos de dos SKUs.
 - **Entrega:** un grid con todas las vistas + cada vista suelta, en **WebP** con **nombre SEO** y `alt-text.csv`.
@@ -37,7 +39,8 @@ Si el SKU no tiene foto real, usa la lámina del techpack y márcalo como riesgo
 3. Sube cada JPG a kie.ai (herramienta `upload_file`). Devuelve una URL pública que **caduca a los 3 días**.
 
 ## Paso 5. Generar el frontal (la imagen ancla)
-- Modelo: **Nano Banana 2.1** (`nano-banana-2-1`), formato **3:4**, ~4 créditos por imagen.
+- Modelo: **Nano Banana 2.1** (`nano-banana-2-1`), formato **3:4**, `model_options: {"resolution": "2K"}`, ~6 créditos por imagen.
+- Añade como referencia `ndb-garments/assets/etiqueta-cuello-real-talla-M.jpg` (foto real de la etiqueta; súbela con `upload_file`) y pega el **bloque de ortografía** de `studio-shots-recipe.md` en el prompt.
 - Referencias: foto completa + macro del bordado + cuello.
 - Prompt: plantilla "Frontal" de `references/studio-shots-recipe.md` + Prompt-ficha del SKU + medidas M + `neck label reads "NIDEBLAS M"`.
 - Revisa el resultado (checklist QA del playbook). Si algo falla, cambia **una sola cosa** por iteración. Si el logo sale simplificado o con otra silueta, repite añadiendo una referencia más clara del logo.
@@ -57,6 +60,13 @@ Con la URL del frontal aprobado como referencia 1 (así se mantienen prenda, luz
 Los prompts exactos de cada vista están en `references/studio-shots-recipe.md`. Fondo siempre `#E9E9EC`, luz difusa de estudio.
 
 ## Paso 7. Revisión de calidad
+**Primero, verifica las etiquetas con OCR** (obligatorio):
+```bash
+swiftc -O tools/ocr_labels.swift -o /tmp/ocr_labels
+/tmp/ocr_labels work-xxx/*.jpg      # OK = lee NIDEBLAS; SOSPECHOSO = regenerar
+```
+Si una imagen sale con `NIGEBLAS` u otra variante, se regenera esa imagen (y, si es el frontal, toda la serie, porque las demás vistas lo usan como referencia).
+
 Marca el checklist del playbook:
 - Color de tela igual que la foto real.
 - Logo: silueta correcta (cabeza a la derecha), color y tamaño proporcional, posición correcta.
@@ -130,6 +140,7 @@ Si el trabajo revela un dato nuevo (color real, medida, etiqueta, error), edíta
 | Problema | Solución |
 |---|---|
 | El logo sale más detallado o con otra silueta | Añadir referencia del macro real; repetir con prompt corto sobre el logo |
+| Etiqueta mal escrita (NIGEBLAS…) | Referencia de etiqueta + bloque de ortografía + 2K + OCR; regenerar |
 | Etiqueta con talla distinta de M | Añadir `neck label reads "NIDEBLAS M"` y `ignore the size letter in the photo`; regenerar |
 | Macro del logo sale sobre tela crema | Pedir `PURE WHITE ... not cream or beige` |
 | Espalda o lateral inventados | Seguro solo en prendas con espalda lisa; en SW-04 y TS-10 usar referencia propia |
@@ -141,4 +152,3 @@ Si el trabajo revela un dato nuevo (color real, medida, etiqueta, error), edíta
 ## Pendientes conocidos
 - Validar el logo contra el vectorial oficial.
 - Fotos con persona y de espalda para mejorar el realismo del fit (ver `open-questions.md`).
-- Subir las imágenes a 2K antes de publicar.

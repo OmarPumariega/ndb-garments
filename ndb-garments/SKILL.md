@@ -21,6 +21,7 @@ Cualquier tarea que muestre una prenda NDB: foto de producto, lookbook, modelo v
 8. **Entrega siempre un grid con todas las vistas y cada vista por separado**, numeradas, en `outputs/<SKU>_<nombre>/`, en WebP con nombre SEO y alt-text. Receta completa y probada en `references/studio-shots-recipe.md`.
 
 ## Reglas que nunca se rompen
+- **Etiqueta = NIDEBLAS, siempre bien escrito** (N-I-D-E-B-L-A-S + talla M). Subir como referencia `assets/etiqueta-cuello-real-talla-M.jpg` (foto real; también hay S, L y XL), pegar el bloque de ortografía de `references/studio-shots-recipe.md` y verificar con OCR (`tools/ocr_labels.swift`). Si sale `NIGEBLAS` u otra variante, se regenera. Generar a **2K**.
 - **Talla M siempre** en camisetas y sudaderas: medidas de la talla M y etiqueta de cuello con la letra M (ver `size-charts.md`).
 - El logo es el avestruz corriendo, **cabeza mirando a la derecha del dibujo**, tal como en el techpack; no rotar, no espejar, no cambiar la silueta ni añadir texto.
 - El wordmark es **NIDEBLAS** en mayúsculas, condensada, cursiva y negrita; la versión de camisetas bordadas/etiquetas de composición usa esa; la versión mixta `NiDeBlas` aparece en nuca trasera, colgante y camiseta Carbono.
@@ -45,4 +46,5 @@ Descarga estos archivos y súbelos como imágenes de referencia (character/produ
 | `references/prompt-playbook.md` | Plantillas, negativos, vídeo, QA |
 | `references/photo-references.md` | Índice de fotos reales, qué demuestran y cómo usarlas |
 | `references/studio-shots-recipe.md` | Receta probada de serie de estudio para web (modelo, prompts por vista, entrega) |
+| `assets/` | Fotos reales de la etiqueta de cuello por talla (S, M, L, XL) y etiquetas de apoyo con el texto exacto NIDEBLAS M |
 | `references/open-questions.md` | Huecos y erratas detectadas en la documentación |

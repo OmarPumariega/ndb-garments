@@ -46,7 +46,7 @@ Start frame: [IMAGEN YA APROBADA]. Keep garment color, logo, and fit identical t
 Congela escena + modelo + pose y cambia **solo** el bloque "[GARMENT PROMPT-FICHA]". Generar de uno en uno; no pedir varios colores en la misma imagen.
 
 ## Negativos universales
-`distorted ostrich logo, mirrored logo, extra legs on logo, text misspelling, extra letters, fake brand logos, Nike swoosh, three stripes, gradient fill on solid logo, glossy plastic embroidery, wrong garment color, extra pockets, hood, zipper, drawstring, graphic print where none exists, inconsistent sleeve length`.
+`NIGEBLAS, NIDEBIAS, NIDEBLAZ, MIDEBLAS, misspelled brand name, wrong label text, distorted ostrich logo, mirrored logo, extra legs on logo, text misspelling, extra letters, fake brand logos, Nike swoosh, three stripes, gradient fill on solid logo, glossy plastic embroidery, wrong garment color, extra pockets, hood, zipper, drawstring, graphic print where none exists, inconsistent sleeve length`.
 
 ## Checklist QA (marcar antes de aprobar)
 - [ ] Color de tela coincide con el SKU (comparar con foto del techpack).
@@ -56,7 +56,7 @@ Congela escena + modelo + pose y cambia **solo** el bloque "[GARMENT PROMPT-FICH
 - [ ] Largo de manga y cuerpo coherentes con la tabla (manga corta; sudadera hasta cadera).
 - [ ] Rib en puños, cuello y cintura de sudaderas; sin capucha ni bolsillos.
 - [ ] Etiqueta de cuello negra con NIDEBLAS visible si se ve el interior.
-- [ ] Wordmark escrito exactamente: NIDEBLAS / NiDeBlas.
+- [ ] Wordmark escrito exactamente: NIDEBLAS / NiDeBlas (8 letras N-I-D-E-B-L-A-S). Verificado con `tools/ocr_labels.swift`.
 - [ ] Manos, costuras y bajos sin deformaciones.
 - [ ] En vídeo: el logo no cambia de forma ni se desplaza entre fotogramas.
 

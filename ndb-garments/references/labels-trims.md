@@ -1,5 +1,12 @@
 # Etiquetas y complementos
 
+## REGLA CRÍTICA: el texto de la etiqueta
+La marca en cualquier etiqueta, colgante o cinta se escribe **siempre `NIDEBLAS`** (mayúsculas; en colgante y espalda de Carbono, `NiDeBlas`). Ocho letras, en este orden: **N-I-D-E-B-L-A-S**. Errores vistos en generación y prohibidos: `NIGEBLAS`, `NIDEBIAS`, `NIDEBLAZ`, `MIDEBLAS`, `HIDEBLAS`.
+- La etiqueta de cuello lleva además la talla: **`NIDEBLAS` + `M`** (siempre M).
+- **Fotos reales de la etiqueta (referencia principal)** en `ndb-garments/assets/`: `etiqueta-cuello-real-talla-S.jpg`, `-M.jpg`, `-L.jpg`, `-XL.jpg` (macro de la etiqueta cosida, aportadas por el equipo). **Para toda imagen se sube `etiqueta-cuello-real-talla-M.jpg`** y se dice en el prompt que copie el texto y la forma de ahí. Como apoyo, `etiqueta-cuello-plana-NIDEBLAS-M.jpg` (texto exacto, plana) y `etiqueta-cuello-NIDEBLAS-M.jpg` (macro generado).
+- **Cómo es la etiqueta real (talla M):** rectángulo de satén negro cosido bajo la cinta negra del cuello, con borde derecho ligeramente inclinado; texto blanco tejido en cursiva condensada: `NIDEBLAS` a la izquierda y la letra de talla a la derecha, separada por un hueco amplio (`NIDEBLAS    M`). Sin más texto.
+- Toda imagen con etiqueta visible pasa el comprobador OCR (`tools/ocr_labels.swift`) antes de aprobarse.
+
 Proveedor: **Etigui Acessórios** (fichas de producción). Mínimos 250–500 uds. Fechas de las fichas: marzo–mayo 2026.
 
 ## 1. Etiqueta de cuello (talla) — `Etiqueta Cuello NDB`

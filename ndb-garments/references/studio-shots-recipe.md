@@ -2,9 +2,20 @@
 
 Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 
+## Estándar de calidad (actualizado)
+- **Resolución 2K** (`model_options: {"resolution": "2K"}`, ~6 créditos por imagen): con más píxeles la etiqueta es legible y se puede verificar con OCR; además la imagen ya sirve para web con zoom.
+- **Imagen de referencia de la etiqueta** en todas las vistas donde salga (frontal, flatlay, detalle cuello, sudaderas): `ndb-garments/assets/etiqueta-cuello-real-talla-M.jpg` (foto real de la etiqueta M; si hace falta apoyo, también `etiqueta-cuello-plana-NIDEBLAS-M.jpg`).
+- **Bloque de ortografía obligatorio** en todo prompt con etiqueta (ver abajo).
+- **Verificación OCR** de cada imagen con etiqueta antes de aprobarla; si falla, se regenera.
+
+### Bloque de ortografía (pegar en TODOS los prompts con etiqueta)
+```
+LABEL TEXT RULE (critical): any visible label reads exactly "NIDEBLAS" followed by the size letter "M". The brand word has eight letters in this exact order: N-I-D-E-B-L-A-S. It is NOT "NIGEBLAS", NOT "NIDEBIAS", NOT "NIDEBLAZ", NOT "MIDEBLAS", NOT "NIDEBLAS XL". Copy the lettering exactly from the label reference image (white italic condensed capitals on black).
+```
+
 ## Herramienta y modelo
-- **Nano Banana 2.1** (`nano-banana-2-1`, kie.ai): ~4 créditos (~0,02 $) por imagen, multi-referencia, buen detalle de bordado. Elegido frente a GPT Image 2.5 Sunburst (6 cr), que simplificó el logo.
-- Formatos: **3:4** para frontal, trasera, lateral y flatlay; **4:5** para detalles.
+- **Nano Banana 2.1** (`nano-banana-2-1`, kie.ai): ~4 créditos a 1K / ~6 a 2K (~0,03 $) por imagen, multi-referencia, buen detalle de bordado. Elegido frente a GPT Image 2.5 Sunburst (6 cr), que simplificó el logo.
+- Resolución: **2K** (ver estándar). Formatos: **3:4** para frontal, trasera, lateral y flatlay; **4:5** para detalles.
 - Coste de una serie de 6 vistas: ~24 créditos (~0,12 $).
 
 ## Proceso
@@ -23,6 +34,16 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 - **Flatlay:** `Flat lay, top-down 90°, same [PRENDA] as reference 1, smoothed on a seamless light-gray surface (#E9E9EC), sleeves relaxed, generous margin, soft even light, very subtle contact shadow; logo, neck tape and label as in reference 1.`
 - **Detalle logo (4:5):** `Macro close-up of the embroidered/printed logo on [TEJIDO]: [técnica y color de hilo], raised satin-stitch with directional sheen, visible fabric weave; silhouette identical to reference. Shallow depth of field, soft side light, no other elements.`
 - **Detalle cuello (4:5):** `Close-up of the neckline: ribbed crew collar, black woven neck label with white italic condensed "NIDEBLAS" and size, black neck tape along the inner edge. Soft diffused light, clean light-gray background.`
+
+## Verificación de etiquetas (obligatoria)
+```bash
+swiftc -O tools/ocr_labels.swift -o /tmp/ocr_labels
+/tmp/ocr_labels work-xxx/*_front.jpg work-xxx/*_flatlay.jpg work-xxx/*_neck_detail.jpg
+```
+- `OK` = lee NIDEBLAS. `SOSPECHOSO: NIGEBLAS` (u otra variante) = **regenerar**.
+- `NO` sin sospechosos = etiqueta ilegible (poco tamaño): subir resolución o ampliar la etiqueta; no se da por buena sin mirar un recorte (`OCR_CROPS=/tmp/crops` guarda recortes ampliados).
+- La vista trasera no lleva etiqueta visible por fuera: no se comprueba.
+- Ocurrió en TS-09 verde (`NIGEBLAS` en frontal, flatlay y detalle de cuello) y en TS-08 flatlay.
 
 ## Qué vigilar (aprendido en el piloto)
 - **Macro del logo en tejido blanco:** pedir `PURE WHITE ... not cream or beige`, o sale sobre crema.
