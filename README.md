@@ -9,6 +9,7 @@ Fuente de verdad de la ropa de **NiDeBlas (NDB)** para generar imágenes y víde
 | Ruta | Para qué |
 |---|---|
 | `PROCEDIMIENTO.md` | Guía paso a paso para generar, optimizar y publicar las imágenes |
+| `PLAN_MARKETING_VIDEO.md` | Plan de lanzamiento: vídeo de marca, créditos de Higgsfield, calendario y redes |
 | `ndb-garments/` | **Skill** para Claude Code / Claude (`SKILL.md` + `references/`) |
 | `outputs/` | Imágenes generadas y aprobadas por prenda: grid + cada vista suelta en WebP con nombre SEO (`camiseta-calle-blanca-frontal.webp`) y `alt-text.csv` |
 | `NDB_KIT_MAESTRO.md` | Todo el contenido en un solo archivo, para pegar en cualquier modelo (Midjourney, Flux, Veo, Kling, Runway, etc.) |
