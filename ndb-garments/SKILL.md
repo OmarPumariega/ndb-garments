@@ -18,6 +18,7 @@ Cualquier tarea que muestre una prenda NDB: foto de producto, lookbook, modelo v
 5. **Monta el prompt** con `references/prompt-playbook.md` (plantillas imagen / vídeo / multi-toma) incluyendo los negativos.
 6. **Adjunta imágenes de referencia**: fotos reales de `references/photo-references.md` (2–3 por SKU: frontal, macro del logo, cuello) y la lámina del techpack. El texto solo no basta para el logo. Si foto y techpack discrepan, **gana la foto real** para color de hilo y textura; el techpack manda para cm de posición.
 7. **Revisa con el checklist QA** del playbook antes de dar la imagen por buena.
+8. **Entrega siempre un grid con todas las vistas y cada vista por separado**, numeradas, en `outputs/<SKU>_<nombre>/`. Receta completa y probada en `references/studio-shots-recipe.md`.
 
 ## Reglas que nunca se rompen
 - El logo es el avestruz corriendo, **cabeza mirando a la derecha del dibujo**, tal como en el techpack; no rotar, no espejar, no cambiar la silueta ni añadir texto.
@@ -42,4 +43,5 @@ Descarga estos archivos y súbelos como imágenes de referencia (character/produ
 | `references/labels-trims.md` | Etiquetas y complementos con medidas y colores |
 | `references/prompt-playbook.md` | Plantillas, negativos, vídeo, QA |
 | `references/photo-references.md` | Índice de fotos reales, qué demuestran y cómo usarlas |
+| `references/studio-shots-recipe.md` | Receta probada de serie de estudio para web (modelo, prompts por vista, entrega) |
 | `references/open-questions.md` | Huecos y erratas detectadas en la documentación |

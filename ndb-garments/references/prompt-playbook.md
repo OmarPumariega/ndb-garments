@@ -56,3 +56,9 @@ Congela escena + modelo + pose y cambia **solo** el bloque "[GARMENT PROMPT-FICH
 - [ ] Wordmark escrito exactamente: NIDEBLAS / NiDeBlas.
 - [ ] Manos, costuras y bajos sin deformaciones.
 - [ ] En vídeo: el logo no cambia de forma ni se desplaza entre fotogramas.
+
+## Entrega de resultados (regla fija)
+Cada vez que se genere una serie de imágenes de una prenda se entregan SIEMPRE:
+1. **Un grid** con todas las vistas en una sola imagen (`<SKU>_00_grid.jpg`), para revisión rápida.
+2. **Cada vista por separado**, en archivo individual listo para la web, numerado y con nombre en español: `<SKU>_01_frontal`, `_02_trasera`, `_03_lateral`, `_04_flatlay`, `_05_detalle-logo`, `_06_detalle-cuello`.
+3. Guardadas en `outputs/<SKU>_<nombre-prenda>/`.
