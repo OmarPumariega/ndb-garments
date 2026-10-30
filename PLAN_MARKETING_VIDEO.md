@@ -31,7 +31,7 @@ Datos comprobados el 30/10/2026:
 - **Stock:** ya ha llegado.
 - **Web:** nideblas.com muestra 5 productos en "Próximamente": camisetas a 25 € y sudaderas a 60 €. Hay una web nueva en Shopify, preparada y sin publicar, que todavía no hemos revisado.
 - **Email:** la serie de bienvenida con `BIENVENIDA10` está activa, pero la lista todavía es muy pequeña.
-- **Material:** en Drive hay 2 vídeos de Dubái sin revisar. No sabemos qué muestran ni si valen para la campaña.
+- **Material:** en Drive hay 2 vídeos verticales en 4K grabados en Dubái, con una persona real y la sudadera crema con avestruz fucsia. Aparece el Burj Khalifa, así que su uso está limitado (ver apartados 5 y 9).
 - **TikTok:** no hemos podido comprobar si la cuenta existe.
 
 Conclusión: el reto no es producir muchos vídeos, sino que los vea gente que ya entrena. El mayor activo es un atleta real con una historia real, algo que la competencia no puede copiar con IA.
@@ -120,6 +120,14 @@ Se monta en 16:9 y 9:16, y de ella salen 3 cortes de 6 a 15 s.
 - Planos en la costa y un día de lluvia, si se puede.
 
 Antes de grabar: permiso de la pista y del club si se ven sus instalaciones o su logo, y consentimiento escrito de cualquier persona que aparezca.
+
+### Vídeos de Dubái
+
+`IMG_3445` (1:22) e `IMG_3446` (14 s) muestran a una persona con la sudadera crema, a la hora dorada, hablando a cámara y moviéndose por el paseo. Confirman la espalda lisa y que la etiqueta del bajo va en el lado izquierdo de quien la lleva.
+
+- **Se puede usar ya:** recortes del pecho sin edificios y el paso en que la cámara entra en el avestruz (`IMG_3445`, 0:42 a 0:46).
+- **Solo con permiso de Emaar:** cualquier plano en el que se vea el Burj Khalifa.
+- **Por resolver:** se ve un micro DJI en el pecho, hay que tener el consentimiento de quien aparece y falta revisar el audio.
 
 ### Vídeos de prenda en movimiento
 
@@ -313,6 +321,7 @@ Automatizaciones a crear: carrito abandonado, pago abandonado y postventa pidien
 - **Personas:** ningún atleta generado con IA se presenta como real, y ningún testimonio se inventa.
 - **Fichas de producto:** lo que se vende debe coincidir con la prenda real. Las vistas inventadas se validan con la muestra física antes de publicarlas.
 - **Música:** las cuentas de empresa deben usar la biblioteca comercial de cada red. Si no, audios propios o música con licencia publicitaria.
+- **Burj Khalifa:** la política de Emaar prohíbe usar sus edificios en publicidad o campañas de marca sin permiso previo por escrito, también en imágenes generadas o editadas. Hasta tenerlo, no se publica ni se recrea con IA.
 - **Rebajas:** cualquier descuento se calcula sobre el precio más bajo de los 30 días anteriores.
 - **Sorteos:** bases escritas y normas de cada plataforma.
 - **Promesas:** nada de afirmaciones técnicas que no podamos demostrar.
@@ -352,5 +361,6 @@ Regla semanal: repetir lo que esté por encima de nuestra media y descartar lo q
 - [Comisión para vendedores nuevos, eDesk](https://www.edesk.com/es/blog/cuanto-cuesta-vender-en-tiktok-shop-espana/) (fuente secundaria)
 - [Código de influencers en España, Cuatrecasas](https://www.cuatrecasas.com/es/spain/propiedad-intelectual/art/claves-del-nuevo-codigo-de-conducta-sobre-el-uso-de-influencers-en-la-publicidad-1)
 - [Precio de referencia en rebajas, Consumo Responde](https://www.consumoresponde.es/node/256455)
+- [Política de uso de activos, Emaar](https://www.emaar.com/en/emaar-asset-usage-policy)
 
 Este plan no sustituye el asesoramiento legal.
