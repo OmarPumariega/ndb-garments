@@ -1,4 +1,6 @@
-# Catálogo de prendas NDB (12 SKUs)
+# Catálogo de prendas NDB (13 SKUs)
+
+> **Cuello por familia (crítico):** camisetas Calle = canalé fino + cinta negra + etiqueta tejida bajo la cinta; sudaderas = canalé grueso, **sin cinta negra**, etiqueta tejida cosida en el cuerpo bajo el cuello; deportivas = ribete liso + cinta negra con NIDEBLAS repetido + etiqueta **estampada**. Detalle y frases de prompt en `labels-trims.md`.
 
 Fuente: `Techpack/N.png` (lámina por SKU). Códigos de color: Pantone TCX (tela) y TCX/PMS (logo). Cada SKU trae un **Prompt-ficha** en inglés listo para pegar.
 

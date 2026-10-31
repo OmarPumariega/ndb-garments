@@ -5,6 +5,7 @@ Guía para repetir el proceso con cualquier prenda y obtener siempre el mismo re
 ## Reglas fijas (resumen)
 - **Etiqueta siempre `NIDEBLAS` bien escrita** (N-I-D-E-B-L-A-S + `M`): referencia de etiqueta + bloque de ortografía + verificación OCR.
 - **Resolución 2K** en todas las imágenes.
+- **Cuello y etiqueta por familia** (camiseta Calle / sudadera / deportiva): frase y foto de referencia propias de cada una (`labels-trims.md`).
 - **Talla M siempre** en camisetas y sudaderas, con las medidas M y la etiqueta de cuello `NIDEBLAS M`.
 - **Una prenda, una ficha:** no mezclar datos de dos SKUs.
 - **Entrega:** un grid con todas las vistas + cada vista suelta, en **WebP** con **nombre SEO** y `alt-text.csv`.
@@ -23,6 +24,8 @@ Abre `ndb-garments/references/catalog.md` y localiza la prenda (modelo + color).
 En `references/size-charts.md` → "Talla de referencia: M" copia pecho, largo, hombro y manga de la talla M de esa prenda y su lectura de fit (regular, relajado, boxy, entallado). Estos datos van en el prompt.
 
 ## Paso 3. Elegir las fotos de referencia
+**Primero identifica la familia** (camiseta Calle, sudadera o deportiva) y toma de `labels-trims.md` la frase de cuello y la foto de cuello de esa familia. Las carpetas de Drive están ordenadas por familia (`photo-references.md`).
+
 En `references/photo-references.md` busca las fotos reales del SKU y elige 3–4:
 1. Prenda completa frontal (color y forma).
 2. Macro del bordado o estampado (hilo, relieve, textura).

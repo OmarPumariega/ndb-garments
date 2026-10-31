@@ -35,7 +35,9 @@ Minimalismo callejero: producto limpio, logo pequeño o único grande, tejidos a
 
 ---
 
-# Catálogo de prendas NDB (12 SKUs)
+# Catálogo de prendas NDB (13 SKUs)
+
+> **Cuello por familia (crítico):** camisetas Calle = canalé fino + cinta negra + etiqueta tejida bajo la cinta; sudaderas = canalé grueso, **sin cinta negra**, etiqueta tejida cosida en el cuerpo bajo el cuello; deportivas = ribete liso + cinta negra con NIDEBLAS repetido + etiqueta **estampada**. Detalle y frases de prompt en `labels-trims.md`.
 
 Fuente: `Techpack/N.png` (lámina por SKU). Códigos de color: Pantone TCX (tela) y TCX/PMS (logo). Cada SKU trae un **Prompt-ficha** en inglés listo para pegar.
 
@@ -276,6 +278,23 @@ La marca en cualquier etiqueta, colgante o cinta se escribe **siempre `NIDEBLAS`
 - **Cómo es la etiqueta real (talla M):** rectángulo de satén negro cosido bajo la cinta negra del cuello, con borde derecho ligeramente inclinado; texto blanco tejido en cursiva condensada: `NIDEBLAS` a la izquierda y la letra de talla a la derecha, separada por un hueco amplio (`NIDEBLAS    M`). Sin más texto.
 - Toda imagen con etiqueta visible pasa el comprobador OCR (`tools/ocr_labels.swift`) antes de aprobarse.
 
+## CUELLO Y ETIQUETA POR FAMILIA DE PRENDA (crítico: cada familia es distinta)
+La etiqueta de talla es la misma (`NIDEBLAS` + `M`), pero **el cuello y cómo va colocada cambian por familia**. Nunca usar el cuello de una familia en otra. Fotos reales en `ndb-garments/assets/`.
+
+| | Camiseta Calle (algodón) | Sudadera Calle | Camiseta deportiva (poliéster) |
+|---|---|---|---|
+| SKUs | TS-05…TS-10, TS-13 | SW-01…SW-04 | SP-11, SP-12 |
+| Cuello | **Canalé fino** (≈1–2,5 cm) del mismo color, costura vista | **Canalé grueso** (≈2,5–3 cm) con costillas verticales marcadas, mismo color, sobre un cuerpo más voluminoso | **Sin canalé**: cuello redondo rematado con un ribete estrecho del mismo tejido liso |
+| Cinta negra interior | **Sí**: cinta negra (twill/sarga) por el borde interior del cuello | **No hay cinta negra**. Solo una cinta/ribete del mismo color de la prenda sobre la costura | **Sí**: cinta elástica negra con `NIDEBLAS` blanco cursiva **repetido** cosida por el interior |
+| Etiqueta de talla | Etiqueta tejida de satén negro `NIDEBLAS  M`, colgando **bajo la cinta negra** | Etiqueta tejida negra `NIDEBLAS  M` cosida **plana sobre el tejido del cuerpo**, centrada en la espalda **justo bajo la costura interior del cuello** (debajo del canalé), borde derecho algo inclinado | **No lleva etiqueta tejida**: etiqueta **estampada** negra sobre el tejido, centrada bajo la cinta: icono de avestruz, `NiDeBlas`, talla (`M`), una línea fina y `MADE IN PORTUGAL` |
+| Foto de referencia | `etiqueta-cuello-real-talla-M.jpg` (también S, L, XL) | `etiqueta-cuello-sudadera-M.jpg` (también `-L.jpg`) | `etiqueta-cuello-deportiva-M.jpg` (menta) y `etiqueta-cuello-deportiva-lavanda.jpg` |
+
+### Frases de prompt por familia (pegar la que corresponda)
+- **Camiseta Calle:** `narrow ribbed crew collar in the garment color; black twill neck tape along the inside edge of the collar and, below it, a small black satin woven label reading NIDEBLAS and M (copy reference photo)`
+- **Sudadera:** `thick vertically-ribbed (rib knit) crew collar about 2.5 to 3 cm wide in the garment color; NO black tape anywhere; a small black woven label reading NIDEBLAS and M sewn flat on the body fabric inside the back, centered just below the inner collar seam (copy reference photo)`
+- **Deportiva:** `no rib collar: smooth round neckline finished with a narrow self-fabric binding; a black woven elastic tape printed with repeating white italic NIDEBLAS sewn along the inside edge; NO woven label: instead a black heat-transfer printed label directly on the inside back fabric, centered below the tape: small ostrich icon, the word NiDeBlas, the size M, a thin horizontal line and MADE IN PORTUGAL in small capitals (copy reference photo)`
+- **Vista trasera** de sudadera: canalé grueso sin cinta negra. De camiseta Calle: cinta negra en el borde interior. De deportiva: cinta negra con NIDEBLAS repetido en el borde interior del cuello.
+
 Proveedor: **Etigui Acessórios** (fichas de producción). Mínimos 250–500 uds. Fechas de las fichas: marzo–mayo 2026.
 
 ## 1. Etiqueta de cuello (talla) — `Etiqueta Cuello NDB`
@@ -303,13 +322,26 @@ Proveedor: **Etigui Acessórios** (fichas de producción). Mínimos 250–500 ud
 - Datos de la ficha incompletos ("A Definir" en material, acabado y Pantone). Ver open-questions.
 - Prompt: `black rectangular cardboard hang tag 60×100 mm, white running-ostrich centered, white italic condensed "NiDeBlas" below, small punched hole at the top center with a thin cord.`
 
-## 5. Cinta de cuello (tapa-costura) deportivas
-- Cinta cubre-costura en el cuello con la palabra `NIDEBLAS` repetida: `NIDEBLAS NIDEBLAS NIDEBLAS`. Color no indicado (en la foto: negro con letras blancas). Aplica a SP-11 y SP-12.
+## 5. Cinta de cuello deportivas
+- Cinta elástica **negra** con `NIDEBLAS` en blanco cursiva repetido a lo largo (se ven 4 repeticiones en el interior del cuello). Aplica a SP-11 y SP-12. Etiqueta estampada (no tejida) bajo la cinta; ver tabla de familias.
 
 ## 6. Tab lateral Carbono
 - Pequeña etiqueta negra, **3 cm alto × 2 cm ancho (doblada)**, texto `NiDeBlas` en blanco **rotado 90°**, en la costura lateral, **10 cm por encima del bajo**.
 
 ---
+
+# Estructura de Drive (Fotos Ropa NDB, reordenada por el equipo)
+Carpeta: Guia de Marca NDB › Referencias Visuales › Fotos Ropa NDB. Subcarpetas:
+| Carpeta | Contenido | ID |
+|---|---|---|
+| Camisetas | fotos de camisetas Calle (4562–4580, 4647–4649, 4659–4668) | `12bx6GneBLyDp8SzhwfH86uvWjQ2xzHAM` |
+| Camisetas Deportivas | deportivas (4597–4608, 4618, 4643–4646, 4675–4677) | `1d5jOdvX2VAy79jv_rliY3Lu4Q14zB9s9` |
+| Sudaderas | sudaderas (4612–4617, 4655–4658, 4669–4674, vídeo 4642) | `1VoZt6Vc6e8W9E5f3Fu3uvnj8kSO_66gC` |
+| Etiqueta Cuello Camisetas | etiqueta por talla S/M/L/XL | `1bUpGypnov2EwJ8kDpN6rxj4hSA4qg9Eu` |
+| Etiqueta Cuello Sudadera | cuello de sudadera L (4812) y M (4813) | `1plU2b04Fk3LG1iV-oUgoF-1cW9tQOYnD` |
+| Etiqueta Cuello Camiseta Deportiva | cuello deportiva menta (4810) y lavanda (4811) | `1JgEwPuuMT3Ja0Wwq-Jd6ljvjfOBTM-OV` |
+| Logotipo Bordado | macros del avestruz bordado (4650–4654) | `1Gk3QKpEZt_btW62XNotjq5McRP-CUhxM` |
+| Logotipo Terciopelo | macros del flock y telas (4581–4591, 4596, 4609–4610) | `1LGpy0NE9d6NxYjt2S4auU6FyEgE01HnS` |
 
 # Fotos reales de referencia (Drive › Guia de Marca NDB › Referencias Visuales › Fotos Ropa NDB)
 
@@ -453,6 +485,13 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 ```
 LABEL TEXT RULE (critical): any visible label reads exactly "NIDEBLAS" followed by the size letter "M". The brand word has eight letters in this exact order: N-I-D-E-B-L-A-S. It is NOT "NIGEBLAS", NOT "NIDEBIAS", NOT "NIDEBLAZ", NOT "MIDEBLAS", NOT "NIDEBLAS XL". Copy the lettering exactly from the label reference image (white italic condensed capitals on black).
 ```
+
+### Cuello según la familia (obligatorio elegir bien)
+Las tres familias tienen cuello y etiqueta distintos. **Antes de generar, elige la frase de cuello de la familia en `labels-trims.md`** (camiseta Calle / sudadera / deportiva) y sube como referencia la **foto de cuello de esa familia** (no la de otra):
+- Camiseta Calle → `assets/etiqueta-cuello-real-talla-M.jpg`
+- Sudadera → `assets/etiqueta-cuello-sudadera-M.jpg`
+- Deportiva → `assets/etiqueta-cuello-deportiva-M.jpg`
+Error ocurrido: las sudaderas SW-01/02/03 se generaron con el cuello de camiseta (cinta negra y canalé fino). Corregido.
 
 ## Herramienta y modelo
 - **Nano Banana 2.1** (`nano-banana-2-1`, kie.ai): ~4 créditos a 1K / ~6 a 2K (~0,03 $) por imagen, multi-referencia, buen detalle de bordado. Elegido frente a GPT Image 2.5 Sunburst (6 cr), que simplificó el logo.

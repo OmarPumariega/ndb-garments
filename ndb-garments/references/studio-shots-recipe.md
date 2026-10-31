@@ -13,6 +13,13 @@ Resultado aprobado por el equipo. Repetir este método para el resto de prendas.
 LABEL TEXT RULE (critical): any visible label reads exactly "NIDEBLAS" followed by the size letter "M". The brand word has eight letters in this exact order: N-I-D-E-B-L-A-S. It is NOT "NIGEBLAS", NOT "NIDEBIAS", NOT "NIDEBLAZ", NOT "MIDEBLAS", NOT "NIDEBLAS XL". Copy the lettering exactly from the label reference image (white italic condensed capitals on black).
 ```
 
+### Cuello según la familia (obligatorio elegir bien)
+Las tres familias tienen cuello y etiqueta distintos. **Antes de generar, elige la frase de cuello de la familia en `labels-trims.md`** (camiseta Calle / sudadera / deportiva) y sube como referencia la **foto de cuello de esa familia** (no la de otra):
+- Camiseta Calle → `assets/etiqueta-cuello-real-talla-M.jpg`
+- Sudadera → `assets/etiqueta-cuello-sudadera-M.jpg`
+- Deportiva → `assets/etiqueta-cuello-deportiva-M.jpg`
+Error ocurrido: las sudaderas SW-01/02/03 se generaron con el cuello de camiseta (cinta negra y canalé fino). Corregido.
+
 ## Herramienta y modelo
 - **Nano Banana 2.1** (`nano-banana-2-1`, kie.ai): ~4 créditos a 1K / ~6 a 2K (~0,03 $) por imagen, multi-referencia, buen detalle de bordado. Elegido frente a GPT Image 2.5 Sunburst (6 cr), que simplificó el logo.
 - Resolución: **2K** (ver estándar). Formatos: **3:4** para frontal, trasera, lateral y flatlay; **4:5** para detalles.

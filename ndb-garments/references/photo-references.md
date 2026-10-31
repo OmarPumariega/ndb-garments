@@ -1,3 +1,16 @@
+# Estructura de Drive (Fotos Ropa NDB, reordenada por el equipo)
+Carpeta: Guia de Marca NDB › Referencias Visuales › Fotos Ropa NDB. Subcarpetas:
+| Carpeta | Contenido | ID |
+|---|---|---|
+| Camisetas | fotos de camisetas Calle (4562–4580, 4647–4649, 4659–4668) | `12bx6GneBLyDp8SzhwfH86uvWjQ2xzHAM` |
+| Camisetas Deportivas | deportivas (4597–4608, 4618, 4643–4646, 4675–4677) | `1d5jOdvX2VAy79jv_rliY3Lu4Q14zB9s9` |
+| Sudaderas | sudaderas (4612–4617, 4655–4658, 4669–4674, vídeo 4642) | `1VoZt6Vc6e8W9E5f3Fu3uvnj8kSO_66gC` |
+| Etiqueta Cuello Camisetas | etiqueta por talla S/M/L/XL | `1bUpGypnov2EwJ8kDpN6rxj4hSA4qg9Eu` |
+| Etiqueta Cuello Sudadera | cuello de sudadera L (4812) y M (4813) | `1plU2b04Fk3LG1iV-oUgoF-1cW9tQOYnD` |
+| Etiqueta Cuello Camiseta Deportiva | cuello deportiva menta (4810) y lavanda (4811) | `1JgEwPuuMT3Ja0Wwq-Jd6ljvjfOBTM-OV` |
+| Logotipo Bordado | macros del avestruz bordado (4650–4654) | `1Gk3QKpEZt_btW62XNotjq5McRP-CUhxM` |
+| Logotipo Terciopelo | macros del flock y telas (4581–4591, 4596, 4609–4610) | `1LGpy0NE9d6NxYjt2S4auU6FyEgE01HnS` |
+
 # Fotos reales de referencia (Drive › Guia de Marca NDB › Referencias Visuales › Fotos Ropa NDB)
 
 Ficheros: `IMG_4562`–`IMG_4617` (HEIC, algunos JPG). Todas son fotos de móvil sobre mesa de madera clara, prenda doblada o en plano. **No hay fotos con persona vistiendo la prenda ni vistas traseras.**
