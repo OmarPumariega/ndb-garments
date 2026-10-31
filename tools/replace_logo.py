@@ -6,15 +6,23 @@ con la misma altura. Pensado para bordado oscuro sobre tela clara (TS-05/06). El
 """
 import argparse, cv2, numpy as np
 
-MODE = 'dark'  # 'dark' = bordado oscuro sobre tela clara; 'color' = flock/color saturado (azul) sobre tela clara
+MODE = 'dark'  # 'light' = bordado claro/crema sobre tela oscura (TS-07, TS-13)
+_UNUSED = 'dark'  # 'dark' = bordado oscuro sobre tela clara; 'color' = flock/color saturado (azul) sobre tela clara
 
 def color_mask(img):
     b, r = img[..., 0].astype(int), img[..., 2].astype(int)
     return ((b - r) > 50) & (b > 110)
 
+def light_mask(img):
+    b, g, r = [img[..., i].astype(int) for i in (0, 1, 2)]
+    # hilo crema/blanco sobre tela oscura azul: canales altos y poca dominancia de rojo (la piel tiene r>>g)
+    return (r > 140) & (g > 140) & (b > 100) & ((r - g) < 40)
+
 def navy_mask(img, thr=30):
     if MODE == 'color':
         return color_mask(img)
+    if MODE == 'light':
+        return light_mask(img)
     # oscuro respecto al fondo local (la tela clara) y con tinte azul/neutro
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
     bg = cv2.medianBlur(gray.astype(np.uint8), 31).astype(np.float32)
@@ -26,12 +34,19 @@ def extract_logo(macro_path):
     g = cv2.cvtColor(m, cv2.COLOR_BGR2GRAY)
     if MODE == 'color':
         raw = color_mask(m).astype(np.uint8)
+    elif MODE == 'light':
+        raw = light_mask(m).astype(np.uint8)
     else:
       raw = ((g < 150) & ((m[..., 0].astype(int) - m[..., 2].astype(int)) > 4)).astype(np.uint8)
     raw = cv2.morphologyEx(raw, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
     merged = cv2.dilate(raw, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (45, 45)))
     n, lab, stats, _ = cv2.connectedComponentsWithStats(merged)
-    big = 1 + np.argmax(stats[1:, cv2.CC_STAT_AREA])
+    H, W = m.shape[:2]
+    areas = stats[:, cv2.CC_STAT_AREA].copy(); areas[0] = 0
+    for i in range(1, n):
+        x, y, w, h = stats[i, :4]
+        if MODE == 'light' and (x <= 2 or y <= 2 or x + w >= W - 2 or y + h >= H - 2): areas[i] = 0
+    big = int(np.argmax(areas))
     comp = (lab == big) & (raw > 0)
     ys, xs = np.where(comp)
     x0, x1, y0, y1 = max(xs.min() - 6, 0), xs.max() + 7, max(ys.min() - 6, 0), ys.max() + 7
@@ -45,7 +60,7 @@ def main():
     ap.add_argument('--macro', required=True); ap.add_argument('--img', required=True); ap.add_argument('--out', required=True)
     ap.add_argument('--center', required=True); ap.add_argument('--win', type=int, default=130)
     ap.add_argument('--xscale', type=float, default=1.0); ap.add_argument('--rot', type=float, default=0.0)
-    ap.add_argument('--hscale', type=float, default=1.0); ap.add_argument('--mode', default='dark', choices=['dark', 'color'])
+    ap.add_argument('--hscale', type=float, default=1.0); ap.add_argument('--mode', default='dark', choices=['dark', 'color', 'light'])
     ap.add_argument('--maxy', type=float, default=0.55, help='con --center auto: fraccion superior de la imagen donde buscar el logo')
     A = ap.parse_args()
     global MODE

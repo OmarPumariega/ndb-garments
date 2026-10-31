@@ -53,5 +53,5 @@ El avestruz **bordado pequeño** (camisetas Calle, 5 cm) NO sale idéntico en ca
 python3 -m venv work-models/venv && work-models/venv/bin/pip install numpy opencv-python-headless pillow
 work-models/venv/bin/python tools/replace_logo.py --macro logo.jpg --img front.jpg --out fix/front.jpg --center X,Y [--win 170 --xscale 0.9]
 ```
-Revisar el recorte ampliado de cada toma (restos del logo viejo, borde). Funciona con bordado oscuro sobre tela clara (TS-05/06/08/09…). Para logo claro sobre tela oscura (TS-07, TS-13) hay que adaptar la máscara (pendiente). El flock grande de las sudaderas sale consistente sin parche.
+Revisar el recorte ampliado de cada toma (restos del logo viejo, borde). Funciona con bordado oscuro sobre tela clara (TS-05/06/08/09…). Para logo claro/crema sobre tela oscura (TS-07, TS-13) usar `--mode light` y centro/ventana ajustados (`--win 62` en pecho de frontal/3/4: una ventana mayor coge piel). Probado con Pablo + TS-13. El flock grande de las sudaderas sale consistente sin parche.
 Orden de trabajo: generar el macro del logo primero y aprobarlo; las demás tomas se corrigen con él.
