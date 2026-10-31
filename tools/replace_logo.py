@@ -25,8 +25,10 @@ def navy_mask(img, thr=30):
         return light_mask(img)
     # oscuro respecto al fondo local (la tela clara) y con tinte azul/neutro
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
-    bg = cv2.medianBlur(gray.astype(np.uint8), 31).astype(np.float32)
+    bg = np.float32(np.median(gray))
     b, r = img[..., 0].astype(int), img[..., 2].astype(int)
+    if MODE == 'darkany':  # logo negro/neutro (TS-09, SP-12)
+        return (bg - gray) > thr
     return ((bg - gray) > thr) & ((b - r) > 6)
 
 def extract_logo(macro_path):
@@ -36,8 +38,10 @@ def extract_logo(macro_path):
         raw = color_mask(m).astype(np.uint8)
     elif MODE == 'light':
         raw = light_mask(m).astype(np.uint8)
+    elif MODE == 'darkany':
+        raw = (g < (np.median(g) - 55)).astype(np.uint8)
     else:
-      raw = ((g < 150) & ((m[..., 0].astype(int) - m[..., 2].astype(int)) > 4)).astype(np.uint8)
+      raw = (g < (np.median(g) - 55)).astype(np.uint8)
     raw = cv2.morphologyEx(raw, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
     merged = cv2.dilate(raw, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (45, 45)))
     n, lab, stats, _ = cv2.connectedComponentsWithStats(merged)
@@ -45,7 +49,7 @@ def extract_logo(macro_path):
     areas = stats[:, cv2.CC_STAT_AREA].copy(); areas[0] = 0
     for i in range(1, n):
         x, y, w, h = stats[i, :4]
-        if MODE == 'light' and (x <= 2 or y <= 2 or x + w >= W - 2 or y + h >= H - 2): areas[i] = 0
+        if MODE in ('light', 'dark', 'darkany') and (x <= 2 or y <= 2 or x + w >= W - 2 or y + h >= H - 2): areas[i] = 0
     big = int(np.argmax(areas))
     comp = (lab == big) & (raw > 0)
     ys, xs = np.where(comp)
@@ -60,7 +64,8 @@ def main():
     ap.add_argument('--macro', required=True); ap.add_argument('--img', required=True); ap.add_argument('--out', required=True)
     ap.add_argument('--center', required=True); ap.add_argument('--win', type=int, default=130)
     ap.add_argument('--xscale', type=float, default=1.0); ap.add_argument('--rot', type=float, default=0.0)
-    ap.add_argument('--hscale', type=float, default=1.0); ap.add_argument('--mode', default='dark', choices=['dark', 'color', 'light'])
+    ap.add_argument('--thr', type=int, default=30, help='umbral de oscuridad respecto a la tela para detectar el logo generado')
+    ap.add_argument('--hscale', type=float, default=1.0); ap.add_argument('--mode', default='dark', choices=['dark', 'darkany', 'color', 'light'])
     ap.add_argument('--maxy', type=float, default=0.55, help='con --center auto: fraccion superior de la imagen donde buscar el logo')
     A = ap.parse_args()
     global MODE
@@ -74,7 +79,7 @@ def main():
         cx, cy = map(int, A.center.split(','))
     x0, y0 = max(cx - A.win, 0), max(cy - A.win, 0)
     win = img[y0:cy + A.win, x0:cx + A.win]
-    mk = navy_mask(win).astype(np.uint8)
+    mk = navy_mask(win, thr=A.thr).astype(np.uint8)
     mk = cv2.morphologyEx(mk, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
     ys, xs = np.where(mk > 0)
     if len(xs) < 20: raise SystemExit('logo no detectado en la ventana')
