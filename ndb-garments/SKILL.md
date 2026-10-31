@@ -47,5 +47,6 @@ Descarga estos archivos y súbelos como imágenes de referencia (character/produ
 | `references/prompt-playbook.md` | Plantillas, negativos, vídeo, QA |
 | `references/photo-references.md` | Índice de fotos reales, qué demuestran y cómo usarlas |
 | `references/studio-shots-recipe.md` | Receta probada de serie de estudio para web (modelo, prompts por vista, entrega) |
+| `references/models-studio.md` | Avatares (Alex, Oscar, Pablo) con prendas NDB: fondo de estudio, outfit por SKU, poses y receta |
 | `assets/` | Fotos reales de cuello/etiqueta: camiseta Calle (S, M, L, XL), sudadera (M, L), deportiva (menta M y lavanda), y apoyo con el texto exacto NIDEBLAS M |
 | `references/open-questions.md` | Huecos y erratas detectadas en la documentación |
