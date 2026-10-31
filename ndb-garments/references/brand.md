@@ -25,4 +25,4 @@ Los Pantone vienen de los techpacks. Los hex son **aproximados** a falta de la g
 | Beige/crema | Beige/Crema (tejido y logo en marino) | `#EADFC8` |
 
 ## Tono visual para imágenes
-Minimalismo callejero: producto limpio, logo pequeño o único grande, tejidos algodón jersey/interlock con textura visible. Fondos neutros de estudio (gris claro #E9E9EC) para producto; luz suave natural para lifestyle; Asturias (costa cantábrica, verde, piedra) para contexto si se pide ambiente.
+Minimalismo callejero: producto limpio, logo pequeño o único grande, tejidos algodón jersey/interlock con textura visible. Fondo único de estudio: gris perla cálido del cíclorama de los avatares (pared ≈ #D4CECC; ver `references/fondo-estudio.md`) para producto; luz suave natural para lifestyle; Asturias (costa cantábrica, verde, piedra) para contexto si se pide ambiente.

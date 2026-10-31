@@ -60,7 +60,7 @@ Con la URL del frontal aprobado como referencia 1 (así se mantienen prenda, luz
 | Detalle logo | 4:5 | Macro del bordado real |
 | Detalle cuello | 4:5 | Foto de cuello y etiqueta |
 
-Los prompts exactos de cada vista están en `references/studio-shots-recipe.md`. Fondo siempre `#E9E9EC`, luz difusa de estudio.
+Los prompts exactos de cada vista están en `references/studio-shots-recipe.md`. Fondo siempre el **oficial NDB** (gris perla cálido de los avatares): subir `assets/placa-estudio-ndb.jpg` como referencia y pegar el bloque de `references/fondo-estudio.md`; luz difusa de estudio.
 
 ## Paso 7. Revisión de calidad
 **Primero, verifica las etiquetas con OCR** (obligatorio):
@@ -147,7 +147,7 @@ Si el trabajo revela un dato nuevo (color real, medida, etiqueta, error), edíta
 | Etiqueta con talla distinta de M | Añadir `neck label reads "NIDEBLAS M"` y `ignore the size letter in the photo`; regenerar |
 | Macro del logo sale sobre tela crema | Pedir `PURE WHITE ... not cream or beige` |
 | Espalda o lateral inventados | Seguro solo en prendas con espalda lisa; en SW-04 y TS-10 usar referencia propia |
-| Fondo del flatlay más oscuro | Forzar `#E9E9EC` y luz difusa |
+| Fondo distinto entre prenda y modelo (azulado vs cálido) o flatlay más oscuro | Usar la placa `assets/placa-estudio-ndb.jpg` + bloque de fondo (`references/fondo-estudio.md`) y comprobar con `tools/check_background.py` |
 | Imagen recortada por arriba | Pedir margen generoso alrededor de la prenda |
 | Resolución baja (~900×1200) | Reescalar a 2K antes de publicar |
 | Foto de referencia en HEIC | Convertir a JPG antes de subir |

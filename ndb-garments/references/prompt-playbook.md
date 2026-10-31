@@ -15,7 +15,7 @@ Siempre se genera en **talla M** (camisetas y sudaderas), con las medidas M de `
 
 ## Plantilla A · Foto de producto (ghost mannequin / plano)
 ```
-Studio e-commerce photo, front view, [GARMENT PROMPT-FICHA], laid flat / on invisible mannequin, soft diffused light, seamless light-gray background (#E9E9EC), natural fabric texture visible (cotton jersey weave / heavy interlock), crisp seams, accurate color, shot at 85 mm, no props.
+Studio e-commerce photo, front view, [GARMENT PROMPT-FICHA], laid flat / on invisible mannequin, soft diffused light, official NDB studio background: seamless warm pearl-gray cyclorama (wall about #DFDCD9 fading to #CBC7C4 at the edges), copy the studio plate reference exactly, NOT pure white and NOT bluish gray, natural fabric texture visible (cotton jersey weave / heavy interlock), crisp seams, accurate color, shot at 85 mm, no props.
 Proportions: chest width [PEITO] cm flat, body length [LARGO] cm, sleeve [MANGA] cm, shoulder-to-shoulder [HOMBRO] cm (size M).
 References: image 1 = real garment; image 2 = logo, keep exact silhouette and placement.
 Negative: wrong logo shape, mirrored logo, extra text, extra graphics, blurry embroidery, plastic shine on embroidery, misspelled NIDEBLAS, wrinkled distortion, brand logos of other companies, extra pockets, drawstrings (on sweatshirts).

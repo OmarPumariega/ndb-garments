@@ -35,12 +35,13 @@ Error ocurrido: las sudaderas SW-01/02/03 se generaron con el cuello de camiseta
 > **Talla M obligatoria.** Añadir a cada prompt las medidas M del SKU y que la etiqueta de cuello diga `NIDEBLAS M`. En el piloto TS-06 la etiqueta salió con `XL` porque la foto de referencia era XL: corregido en la regeneración con `neck label reads M (not XL)` en frontal, flatlay y detalle de cuello.
 
 ## Prompts por vista (sustituir [PRENDA] y color del hilo)
-- **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, seamless light-gray background (#E9E9EC), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape. No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`
-- **Trasera:** `Same exact [PRENDA] as reference 1, seen from the BACK, ghost mannequin, same lighting, background and scale. Plain back, NO logo/print/text (salvo SW-04 y TS-10, que tienen espalda propia). Back neckline with black neck tape visible.`
+> **Fondo (obligatorio, cambio 31/10):** todas las vistas llevan como última referencia `assets/placa-estudio-ndb.jpg` y el bloque de fondo de `references/fondo-estudio.md` (gris perla cálido de los avatares). Los prompts de abajo ya lo mencionan; no volver al gris `#E9E9EC`.
+- **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, OFFICIAL NDB BACKGROUND (paste the background block of fondo-estudio.md; reference N = studio plate assets/placa-estudio-ndb.jpg), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape; reference 4: studio plate (background). No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`
+- **Trasera:** `Same exact [PRENDA] as reference 1, seen from the BACK, ghost mannequin, same lighting, same official NDB background (studio plate) and scale. Plain back, NO logo/print/text (salvo SW-04 y TS-10, que tienen espalda propia). Back neckline with black neck tape visible.`
 - **Lateral:** `Same [PRENDA] as reference 1, SIDE view (90° left profile), ghost mannequin, same lighting and scale; show side seam, sleeve and drape; the front logo only barely visible at the edge, do not enlarge it.`
-- **Flatlay:** `Flat lay, top-down 90°, same [PRENDA] as reference 1, smoothed on a seamless light-gray surface (#E9E9EC), sleeves relaxed, generous margin, soft even light, very subtle contact shadow; logo, neck tape and label as in reference 1.`
+- **Flatlay:** `Flat lay, top-down 90°, same [PRENDA] as reference 1, smoothed on a seamless warm pearl-gray matte surface (about #DFDCD9, same as the official NDB studio plate), sleeves relaxed, generous margin, soft even light, very subtle contact shadow; logo, neck tape and label as in reference 1.`
 - **Detalle logo (4:5):** `Macro close-up of the embroidered/printed logo on [TEJIDO]: [técnica y color de hilo], raised satin-stitch with directional sheen, visible fabric weave; silhouette identical to reference. Shallow depth of field, soft side light, no other elements.`
-- **Detalle cuello (4:5):** `Close-up of the neckline: ribbed crew collar, black woven neck label with white italic condensed "NIDEBLAS" and size, black neck tape along the inner edge. Soft diffused light, clean light-gray background.`
+- **Detalle cuello (4:5):** `Close-up of the neckline: ribbed crew collar, black woven neck label with white italic condensed "NIDEBLAS" and size, black neck tape along the inner edge. Soft diffused light, out-of-focus background in the warm pearl-gray of the official NDB studio (#D4CECC), not white and not bluish.`
 
 ## Verificación de etiquetas (obligatoria)
 ```bash
@@ -58,7 +59,7 @@ swiftc -O tools/ocr_labels.swift -o /tmp/ocr_labels
 - **Etiqueta:** si la referencia muestra otra talla, indicar explícitamente `ignore the size letter in the photo; use M`.
 - El **logo** sale algo más detallado que el real: validar siempre contra el logo vector.
 - La **trasera y el lateral** los inventa el modelo si no hay foto real; seguros en prendas con espalda lisa.
-- El **fondo del flatlay** tiende a salir más oscuro: pedir `#E9E9EC` y revisar.
+- **Fondo:** usar SIEMPRE el fondo oficial de estudio (gris perla cálido de los avatares): subir `assets/placa-estudio-ndb.jpg` como referencia y pegar el bloque de `references/fondo-estudio.md`; comprobar con `tools/check_background.py`. El fondo antiguo `#E9E9EC` (azulado) queda prohibido.
 - Dejar **margen** arriba en el frontal (a veces recorta).
 - Resolución de salida ~900×1200: subir a 2K para web con reescalado antes de publicar.
 

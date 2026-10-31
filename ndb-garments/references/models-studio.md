@@ -2,7 +2,7 @@
 
 ## Fondo de estudio oficial (decidido 31/10)
 Referencia: `Referencia Modelo Ropa Deportiva.jpg` (Drive › Referencia Estudio Fotográfico › Referencia Ropa Deportiva; copia de trabajo `work-models/ref-studio-bg.jpg`).
-- Cíclorama continuo blanco roto/gris perla (~#F0F0EE), nunca blanco puro; sin horizonte.
+- Cíclorama continuo gris perla **cálido** (pared medida ≈ #D4CECC, placa #DFDCD9/#CBC7C4), nunca blanco puro; sin horizonte. **Es el fondo único de toda la marca**: especificación completa en `references/fondo-estudio.md`.
 - Luz de softbox frontal, suave, sin sombras duras.
 - Sombra suave y difusa en el suelo bajo y detrás de los pies; pies apoyados.
 - Cuerpo entero 3:4, 2K, mismo margen arriba/abajo. Exterior: pendiente.

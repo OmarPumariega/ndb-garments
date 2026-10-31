@@ -1,6 +1,6 @@
 # NDB — Kit maestro para pegar en cualquier modelo de IA
 
-Contenido: marca, catálogo, medidas, etiquetas, fotos de referencia, prompts, receta de estudio y huecos.
+Contenido: marca, catálogo, medidas, etiquetas, fotos de referencia, prompts, fondo único de estudio, receta de estudio, avatares y huecos.
 
 ---
 
@@ -31,7 +31,8 @@ Los Pantone vienen de los techpacks. Los hex son **aproximados** a falta de la g
 | Beige/crema | Beige/Crema (tejido y logo en marino) | `#EADFC8` |
 
 ## Tono visual para imágenes
-Minimalismo callejero: producto limpio, logo pequeño o único grande, tejidos algodón jersey/interlock con textura visible. Fondos neutros de estudio (gris claro #E9E9EC) para producto; luz suave natural para lifestyle; Asturias (costa cantábrica, verde, piedra) para contexto si se pide ambiente.
+Minimalismo callejero: producto limpio, logo pequeño o único grande, tejidos algodón jersey/interlock con textura visible. Fondo único de estudio: gris perla cálido del cíclorama de los avatares (pared ≈ #D4CECC; ver `references/fondo-estudio.md`) para producto; luz suave natural para lifestyle; Asturias (costa cantábrica, verde, piedra) para contexto si se pide ambiente.
+
 
 ---
 
@@ -127,6 +128,7 @@ Tallas S/M/L/XL. Logo **bordado 5 cm** en pecho izquierdo salvo Carbono. Etiquet
 | TS-10 | vapor blue | ilustración + letras | 20×16 cm / 10 cm | pecho alto + espalda | estampado |
 | SP-11 | jacaranda | blanco | 5 cm | pecho centro | transfer |
 | SP-12 | icy morn | negro | 5 cm | pecho izq. | transfer/bordado ligero |
+
 
 ---
 
@@ -267,6 +269,7 @@ Datos M para el prompt (cm, prenda plana):
 
 Frase tipo para añadir al prompt: `Size M. Flat chest width [X] cm, body length [Y] cm, shoulder [Z] cm, sleeve [W] cm. Neck label reads "NIDEBLAS M".`
 
+
 ---
 
 # Etiquetas y complementos
@@ -327,6 +330,7 @@ Proveedor: **Etigui Acessórios** (fichas de producción). Mínimos 250–500 ud
 
 ## 6. Tab lateral Carbono
 - Pequeña etiqueta negra, **3 cm alto × 2 cm ancho (doblada)**, texto `NiDeBlas` en blanco **rotado 90°**, en la costura lateral, **10 cm por encima del bajo**.
+
 
 ---
 
@@ -390,6 +394,7 @@ Convierte los HEIC a JPG/PNG antes de subirlos a un modelo (la mayoría de herra
 2. Indica en el prompt qué hace cada una: `image 1: full front of the garment (match color and shape exactly); image 2: macro of the embroidery (match thread color and relief); image 3: neck label and tape.`
 3. En caso de conflicto entre foto real y techpack, **gana la foto real** para color de hilo y textura; el techpack manda para cm de posición del logo.
 
+
 ---
 
 # Prompt playbook (imagen y vídeo)
@@ -409,7 +414,7 @@ Siempre se genera en **talla M** (camisetas y sudaderas), con las medidas M de `
 
 ## Plantilla A · Foto de producto (ghost mannequin / plano)
 ```
-Studio e-commerce photo, front view, [GARMENT PROMPT-FICHA], laid flat / on invisible mannequin, soft diffused light, seamless light-gray background (#E9E9EC), natural fabric texture visible (cotton jersey weave / heavy interlock), crisp seams, accurate color, shot at 85 mm, no props.
+Studio e-commerce photo, front view, [GARMENT PROMPT-FICHA], laid flat / on invisible mannequin, soft diffused light, official NDB studio background: seamless warm pearl-gray cyclorama (wall about #DFDCD9 fading to #CBC7C4 at the edges), copy the studio plate reference exactly, NOT pure white and NOT bluish gray, natural fabric texture visible (cotton jersey weave / heavy interlock), crisp seams, accurate color, shot at 85 mm, no props.
 Proportions: chest width [PEITO] cm flat, body length [LARGO] cm, sleeve [MANGA] cm, shoulder-to-shoulder [HOMBRO] cm (size M).
 References: image 1 = real garment; image 2 = logo, keep exact silhouette and placement.
 Negative: wrong logo shape, mirrored logo, extra text, extra graphics, blurry embroidery, plastic shine on embroidery, misspelled NIDEBLAS, wrinkled distortion, brand logos of other companies, extra pockets, drawstrings (on sweatshirts).
@@ -469,6 +474,51 @@ Cada vez que se genere una serie de imágenes de una prenda se entregan SIEMPRE:
 
 **Texto alternativo:** generar siempre `alt-text.csv` en la carpeta (columnas `archivo,alt`), en español, describiendo prenda, color, vista y logo. No incluir el grid.
 
+
+---
+
+# Fondo de estudio oficial NDB (UNICO para producto y modelos)
+
+> **Decisión del equipo (31/10/2026):** a partir de ahora **toda imagen de estudio** (producto con maniquí fantasma, flatlay, detalles, avatares) usa **el fondo de los avatares**. Así web, fichas de producto y galerías se ven con la misma luz y no hay saltos de tono entre la foto de la prenda y la del modelo.
+
+## Qué fondo es
+Cíclorama continuo (pared que se curva en el suelo, sin línea de horizonte), **gris perla cálido, no blanco puro y no azulado**, con luz de softbox frontal muy suave y un ligero degradado (más claro en el centro, más tenue en los bordes). Referencia de estilo: foto del modelo en negro (`assets/ref-estudio-modelo-negro.jpg`). **Imagen de referencia obligatoria: `assets/placa-estudio-ndb.jpg`** (estudio vacío).
+
+Valores medidos (sRGB):
+| Zona | Color |
+|---|---|
+| Pared, centro de la placa | `#DFDCD9` |
+| Pared, bordes de la placa | `#CBC7C4` |
+| Suelo de la placa | `#E0DEE0` |
+| Pared lateral en los 12 sets con modelo (media) | **`#D4CECC`** (±7 por canal entre sets) |
+| Antes, producto (frontal, media de 13 series) | `#DADEE3` → **azulado/frío: ya NO se usa** |
+
+El tono es cálido: `R ≥ B + 2`. Si sale azulado (`R < B`) o casi blanco, la imagen falla.
+
+## Bloque de fondo (pegar en TODOS los prompts de estudio)
+Sube la placa como imagen de referencia y pega este bloque (cambia `image N` por el número de la placa):
+```
+BACKGROUND (official NDB studio, copy image N exactly): seamless warm pearl-gray cyclorama, no horizon line, wall about #DFDCD9 in the center fading softly to about #CBC7C4 at the edges, floor about #E0DEE0, very soft even frontal softbox light. NOT pure white, NOT cool or bluish gray. Ignore any floating shadow in image N; draw a soft diffused contact shadow instead.
+```
+Según el tipo de imagen se añade:
+- **Persona de pie:** `a CLEARLY VISIBLE soft gray shadow under and behind both feet, falling back and to the right, feet firmly grounded.`
+- **Producto con maniquí fantasma (frontal/trasera/lateral):** `garment floating centered in front of the backdrop with a soft diffused contact shadow beneath it, same wall tone as image N.`
+- **Flatlay (cenital):** `top-down on the same warm pearl-gray matte paper (about #DFDCD9), soft even light, very soft shadow under the garment edges, no visible floor line.`
+- **Detalles y macros (logo, cuello):** `shallow depth of field, out-of-focus background in the same warm pearl-gray (#D4CECC).`
+- **Grid:** el fondo del lienzo del grid debe ser `#DFDCD9` (no `#EEEEEC` ni blanco).
+
+## Cómo aplicarlo
+1. **Siempre** incluir `assets/placa-estudio-ndb.jpg` entre las referencias (junto a la foto de prenda, el grid o la lámina del avatar).
+2. Pegar el bloque de fondo. No usar nunca más `#E9E9EC`, `light-gray`, `white seamless` ni `pure white background`.
+3. **Comprobar con `tools/check_background.py`** (frontales, traseras, tres cuartos, flatlay): debe dar `OK`. Si da `FRIO/AZULADO` o `FALLA`, se regenera.
+4. Para exterior (más adelante) este fondo no aplica; se definirá aparte.
+
+## Estado actual y migración pendiente
+- Los **12 sets con modelo** ya usan este fondo (`OK`).
+- Las **13 series de producto** (`outputs/<SKU>_…`: frontal, trasera, lateral, flatlay, detalles, grid) se generaron antes con el fondo frío `#DADEE3`. **No se regeneran ahora** (decisión del equipo: "por ahora lo dejamos así"). Cuando se toquen o se hagan productos nuevos, ya se generan con este fondo. Si se quiere unificar toda la web de golpe, hay que rehacer las 13 series con la placa (≈ 78 imágenes).
+- Productos nuevos y avatares nuevos: **siempre este fondo desde la primera imagen**.
+
+
 ---
 
 # Receta probada: serie de estudio para la web (piloto TS-06, camiseta Calle blanca)
@@ -508,12 +558,13 @@ Error ocurrido: las sudaderas SW-01/02/03 se generaron con el cuello de camiseta
 > **Talla M obligatoria.** Añadir a cada prompt las medidas M del SKU y que la etiqueta de cuello diga `NIDEBLAS M`. En el piloto TS-06 la etiqueta salió con `XL` porque la foto de referencia era XL: corregido en la regeneración con `neck label reads M (not XL)` en frontal, flatlay y detalle de cuello.
 
 ## Prompts por vista (sustituir [PRENDA] y color del hilo)
-- **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, seamless light-gray background (#E9E9EC), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape. No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`
-- **Trasera:** `Same exact [PRENDA] as reference 1, seen from the BACK, ghost mannequin, same lighting, background and scale. Plain back, NO logo/print/text (salvo SW-04 y TS-10, que tienen espalda propia). Back neckline with black neck tape visible.`
+> **Fondo (obligatorio, cambio 31/10):** todas las vistas llevan como última referencia `assets/placa-estudio-ndb.jpg` y el bloque de fondo de `references/fondo-estudio.md` (gris perla cálido de los avatares). Los prompts de abajo ya lo mencionan; no volver al gris `#E9E9EC`.
+- **Frontal:** `Professional e-commerce studio product photo, front view, of the [PRENDA] from the reference photos, on an invisible ghost mannequin, centered, full garment with margin. [descripción del prompt-ficha]. Soft diffused studio lighting, gentle natural shadow, OFFICIAL NDB BACKGROUND (paste the background block of fondo-estudio.md; reference N = studio plate assets/placa-estudio-ndb.jpg), crisp seams, fine fabric weave, true-to-life color, 85mm. Reference 1: full garment; reference 2: embroidery macro; reference 3: neck label and tape; reference 4: studio plate (background). No text, extra graphics, pockets or other logos. Do not change or mirror the logo.`
+- **Trasera:** `Same exact [PRENDA] as reference 1, seen from the BACK, ghost mannequin, same lighting, same official NDB background (studio plate) and scale. Plain back, NO logo/print/text (salvo SW-04 y TS-10, que tienen espalda propia). Back neckline with black neck tape visible.`
 - **Lateral:** `Same [PRENDA] as reference 1, SIDE view (90° left profile), ghost mannequin, same lighting and scale; show side seam, sleeve and drape; the front logo only barely visible at the edge, do not enlarge it.`
-- **Flatlay:** `Flat lay, top-down 90°, same [PRENDA] as reference 1, smoothed on a seamless light-gray surface (#E9E9EC), sleeves relaxed, generous margin, soft even light, very subtle contact shadow; logo, neck tape and label as in reference 1.`
+- **Flatlay:** `Flat lay, top-down 90°, same [PRENDA] as reference 1, smoothed on a seamless warm pearl-gray matte surface (about #DFDCD9, same as the official NDB studio plate), sleeves relaxed, generous margin, soft even light, very subtle contact shadow; logo, neck tape and label as in reference 1.`
 - **Detalle logo (4:5):** `Macro close-up of the embroidered/printed logo on [TEJIDO]: [técnica y color de hilo], raised satin-stitch with directional sheen, visible fabric weave; silhouette identical to reference. Shallow depth of field, soft side light, no other elements.`
-- **Detalle cuello (4:5):** `Close-up of the neckline: ribbed crew collar, black woven neck label with white italic condensed "NIDEBLAS" and size, black neck tape along the inner edge. Soft diffused light, clean light-gray background.`
+- **Detalle cuello (4:5):** `Close-up of the neckline: ribbed crew collar, black woven neck label with white italic condensed "NIDEBLAS" and size, black neck tape along the inner edge. Soft diffused light, out-of-focus background in the warm pearl-gray of the official NDB studio (#D4CECC), not white and not bluish.`
 
 ## Verificación de etiquetas (obligatoria)
 ```bash
@@ -531,12 +582,88 @@ swiftc -O tools/ocr_labels.swift -o /tmp/ocr_labels
 - **Etiqueta:** si la referencia muestra otra talla, indicar explícitamente `ignore the size letter in the photo; use M`.
 - El **logo** sale algo más detallado que el real: validar siempre contra el logo vector.
 - La **trasera y el lateral** los inventa el modelo si no hay foto real; seguros en prendas con espalda lisa.
-- El **fondo del flatlay** tiende a salir más oscuro: pedir `#E9E9EC` y revisar.
+- **Fondo:** usar SIEMPRE el fondo oficial de estudio (gris perla cálido de los avatares): subir `assets/placa-estudio-ndb.jpg` como referencia y pegar el bloque de `references/fondo-estudio.md`; comprobar con `tools/check_background.py`. El fondo antiguo `#E9E9EC` (azulado) queda prohibido.
 - Dejar **margen** arriba en el frontal (a veces recorta).
 - Resolución de salida ~900×1200: subir a 2K para web con reescalado antes de publicar.
 
 ## Entrega
 Grid + cada vista suelta en **WebP** con **nombre SEO** (`<tipo>-<modelo>-<color>-<vista>.webp`) y `alt-text.csv`, en `outputs/<SKU>_<nombre>/`. Reglas completas en el playbook. En el piloto TS-06 el peso bajó de ~300–600 KB (JPG) a 13–58 KB por imagen.
+
+
+---
+
+# Modelos (avatares) en estudio NDB
+
+## Fondo de estudio oficial (decidido 31/10)
+Referencia: `Referencia Modelo Ropa Deportiva.jpg` (Drive › Referencia Estudio Fotográfico › Referencia Ropa Deportiva; copia de trabajo `work-models/ref-studio-bg.jpg`).
+- Cíclorama continuo gris perla **cálido** (pared medida ≈ #D4CECC, placa #DFDCD9/#CBC7C4), nunca blanco puro; sin horizonte. **Es el fondo único de toda la marca**: especificación completa en `references/fondo-estudio.md`.
+- Luz de softbox frontal, suave, sin sombras duras.
+- Sombra suave y difusa en el suelo bajo y detrás de los pies; pies apoyados.
+- Cuerpo entero 3:4, 2K, mismo margen arriba/abajo. Exterior: pendiente.
+
+## Avatares (láminas en Drive › Fotos Ropa NDB › Avatar NDB)
+Alex (castaño ondulado, barba ligera, ojos marrones), Oscar (rapado, barba de varios días, mandíbula marcada), Pablo (rubio ondulado, ojos azules). Todos 1,80 m / 72 kg, atléticos. No hay mujeres.
+
+## Receta (referencias en este orden)
+1 lámina del avatar · 2 grid de la prenda (`outputs/<SKU>/…-grid.webp` → jpg) · 3 fondo · 4 etiqueta/cuello de su familia si se ve la nuca.
+Prompt: "SAME man as image 1 … wearing the garment of image 2 (copy color, fit, logo) … remove the white t-shirt of image 1 completely … studio of image 3 exactly". Mantener chinos beige y zapatillas blancas. Talla M.
+Sets definitivos: `outputs/MODELO-<AVATAR>_<SKU>_<slug>/` (las pruebas antiguas se eliminaron del repositorio el 31/10).
+
+## Actualización 31/10 (v2)
+- **Placa de estudio**: `assets/placa-estudio-ndb.jpg` (cíclorama vacío). Se sube SIEMPRE como ref. 3 y se dice "ignora la sombra flotante de la placa; dibuja la sombra de SUS pies, hacia atrás y a la derecha". Foto de estilo original: `assets/ref-estudio-modelo-negro.jpg`.
+- **Outfit fijo por SKU** (no repetir el chino beige):
+  | Prenda | Pantalón | Calzado |
+  |---|---|---|
+  | Camisetas blanca / beige | vaquero índigo oscuro o negro | zapatilla blanca |
+  | Azul marino / celeste / azul rey | vaquero claro o chino crema | blanca / ante marrón oscuro |
+  | Verde salvia | vaquero oscuro o chino arena | blanca |
+  | Sudaderas crema | vaquero azul medio | blanca |
+  | Sudaderas celeste / petróleo | gris carbón o negro | blanca |
+  | Carbono | vaquero claro o gris claro | blanca |
+  | Deportivas | short/malla técnica negra o gris | running |
+- **Pose**: una distinta por foto (mano en bolsillo, paso al caminar, brazos cruzados con cuerpo en 3/4); trasera con cabeza girada.
+- **Orden**: frontal (ancla) → trasera usando la frontal como ref. 1 + grid + placa. Las traseras de camiseta/sudadera no muestran etiqueta (va por dentro); la etiqueta se enseña solo en detalle de cuello (OCR).
+- **Pendiente**: tab del bajo de la sudadera sale con texto ilegible (pasar OCR si se ve de cerca); modelo femenino para SP-11; tres cuartos, media distancia y primer plano; exterior.
+
+## Set completo con modelo (probado: Alex + TS-06, 31/10)
+Orden: 1 frontal (ancla, ref: lámina + frontal v2 + placa + macro de logo del grid) → 2 trasera → 3 tres cuartos → 4 media distancia → 5 primer plano logo (4:5, ref macro del logo). Todas con la frontal como ref 1. 2K.
+**NO se genera detalle de cuello/etiqueta con modelo** (decisión del equipo 31/10: la toma de la nuca con el cuello doblado a mano se ve falsa/IA). El cuello y la etiqueta se enseñan solo con las fotos de la prenda sola (flatlay y detalle de cuello de la serie de producto).
+Salida: `outputs/MODELO-<AVATAR>_<SKU>_<slug>/` con `modelo-<avatar>-<prenda>-<vista>.webp`, grid y `alt-text.csv`.
+
+### Ajustes que mejoraron el resultado
+- Expresión: pedir "labios cerrados con asomo de sonrisa", "sonrisa natural con dientes", "mirada fuera de cámara"; variar por vista.
+- Sombra: "CLEARLY VISIBLE soft gray shadow under and behind both feet, falling back and to the right".
+- Ajuste M: "hem at the hip bone, sleeves end mid-bicep, natural folds".
+- Logo: dar el macro del logo como referencia y decir "5 cm, head facing right, thread texture".
+
+### Checklist QA por imagen (antes de aprobar)
+[ ] cara = lámina del avatar [ ] manos 5 dedos [ ] color y corte de la prenda = grid [ ] logo: tamaño 5 cm, orientación (cabeza a la derecha), técnica [ ] etiqueta NIDEBLAS M (OCR `OK` o recorte visual) [ ] fondo = placa [ ] sombra visible [ ] sin texto inventado [ ] pantalón/calzado según tabla.
+OCR: las fotos de modelo no muestran etiqueta, no se pasa OCR; si algún plano deja ver texto, se verifica.
+
+## Consistencia del logo bordado (aprendido 31/10)
+El avestruz **bordado pequeño** (camisetas Calle, 5 cm) NO sale idéntico en cada toma: el modelo de imagen lo redibuja distinto (patas, cola, grosor) en frontal, 3/4 y media distancia. El macro del logo sí sale perfecto.
+**Solución obligatoria tras generar:** `tools/replace_logo.py` borra el logo generado (inpaint) y pega el logo real extraído del macro aprobado (`--macro` = la imagen de detalle de logo del mismo set), a la misma altura y con `--xscale 0.9` en tres cuartos.
+```bash
+python3 -m venv work-models/venv && work-models/venv/bin/pip install numpy opencv-python-headless pillow
+work-models/venv/bin/python tools/replace_logo.py --macro logo.jpg --img front.jpg --out fix/front.jpg --center X,Y [--win 170 --xscale 0.9]
+```
+Revisar el recorte ampliado de cada toma (restos del logo viejo, borde). Funciona con bordado oscuro sobre tela clara (TS-05/06/08/09…). Para logo claro/crema sobre tela oscura (TS-07, TS-13) usar `--mode light` y centro/ventana ajustados (`--win 62` en pecho de frontal/3/4: una ventana mayor coge piel). Probado con Pablo + TS-13. El flock grande de las sudaderas sale consistente sin parche.
+Orden de trabajo: generar el macro del logo primero y aprobarlo; las demás tomas se corrigen con él.
+
+## Reparto de modelos (completado 31/10, prendas masculinas)
+| Modelo | Prendas |
+|---|---|
+| Alex | TS-06 blanca (vaquero índigo), TS-05 beige (vaquero negro), TS-08 celeste (chino arena), SW-02 crema/fucsia (vaquero oscuro) |
+| Oscar | SW-01 crema/cobalto (vaquero azul medio), TS-07 azul marino (vaquero claro), SW-03 celeste (pantalón gris carbón), SP-12 deportiva menta (short negro de running, zapatillas de correr) |
+| Pablo | TS-13 azul rey (chino crema), TS-09 verde salvia (vaquero oscuro), SW-04 azul petróleo (chino negro), TS-10 Carbono (vaquero claro) |
+Pendiente: SP-11 (mujer) con modelo femenina; exterior.
+
+## Aprendido en la tanda de 9 sets
+- `replace_logo.py`: la detección del logo generado usa la **mediana de la ventana** como fondo. Para logos muy oscuros sobre tela clara o media (TS-05, TS-08, TS-09, SP-12) funciona mejor `--mode darkany --thr 90`; `--mode dark` falla en logos finos. Para crema/gris-violeta sobre tela oscura (TS-07, SW-04) `--mode light`. Siempre `--win` pequeño (60–110) y centro exacto: con centro/ventana mal puestos coge piel o cuello.
+- Deportivas: vestir al modelo con short de running, calcetines bajos blancos y zapatillas de correr; poses de ejercicio (manos en cintura, zancada, estiramiento, secándose la frente). Pedir "NO sweat stains / wet patches": si no, salen manchas de sudor en la tela.
+- TS-10 Carbono: el estampado grande (avestruz mecánico) cambia de tamaño y detalle entre tomas; no hay parche automático. El rótulo trasero `NiDeBlas / Born Asturias` se lee bien. SW-04: el wordmark bordado de la nuca sale legible (`NiDeBlas`).
+- Herramienta de cierre: `tools/finalize_model_set.py` (WebP, grid 3x2, alt-text) usa `fix/` si existe.
+
 
 ---
 
@@ -573,3 +700,10 @@ Hilo azul marino (no cobalto) en TS-05/06, flock en sudaderas, deportiva hombre 
 3. **Flatlay de sudaderas:** los brazos salen algo flexionados en SW-01 y SW-03. Si se quiere recto, repetir con "arms straight along the body".
 4. **Sudadera marino (SW-04):** la etiqueta de cuello es la de las otras sudaderas; falta foto real de esa prenda para confirmar color del hilo y bordado trasero.
 5. **TS-10 Carbono:** el detalle de estampado sale inclinado; repetir con "print straight, horizontal" si se quiere más limpio.
+
+## Pendiente: unificar fondo de las series de producto (31/10)
+- Las 13 series de producto (`outputs/<SKU>_…`) tienen fondo azulado (`#DADEE3`) y los 12 sets con modelo, cálido (`#D4CECC`). El equipo decidió dejarlo así por ahora. Regla desde ahora: **todo se genera con el fondo de los avatares** (`references/fondo-estudio.md`). Para migrar: regenerar cada serie con `assets/placa-estudio-ndb.jpg` como referencia y validar con `tools/check_background.py`.
+
+
+---
+

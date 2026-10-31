@@ -31,3 +31,6 @@ Hilo azul marino (no cobalto) en TS-05/06, flock en sudaderas, deportiva hombre 
 3. **Flatlay de sudaderas:** los brazos salen algo flexionados en SW-01 y SW-03. Si se quiere recto, repetir con "arms straight along the body".
 4. **Sudadera marino (SW-04):** la etiqueta de cuello es la de las otras sudaderas; falta foto real de esa prenda para confirmar color del hilo y bordado trasero.
 5. **TS-10 Carbono:** el detalle de estampado sale inclinado; repetir con "print straight, horizontal" si se quiere más limpio.
+
+## Pendiente: unificar fondo de las series de producto (31/10)
+- Las 13 series de producto (`outputs/<SKU>_…`) tienen fondo azulado (`#DADEE3`) y los 12 sets con modelo, cálido (`#D4CECC`). El equipo decidió dejarlo así por ahora. Regla desde ahora: **todo se genera con el fondo de los avatares** (`references/fondo-estudio.md`). Para migrar: regenerar cada serie con `assets/placa-estudio-ndb.jpg` como referencia y validar con `tools/check_background.py`.

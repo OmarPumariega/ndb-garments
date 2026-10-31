@@ -21,6 +21,7 @@ Cualquier tarea que muestre una prenda NDB: foto de producto, lookbook, modelo v
 8. **Entrega siempre un grid con todas las vistas y cada vista por separado**, numeradas, en `outputs/<SKU>_<nombre>/`, en WebP con nombre SEO y alt-text. Receta completa y probada en `references/studio-shots-recipe.md`.
 
 ## Reglas que nunca se rompen
+- **Un solo fondo de estudio para TODO** (producto, flatlay, detalles y avatares): el fondo de los avatares, gris perla cálido (pared ≈ `#D4CECC`, placa `assets/placa-estudio-ndb.jpg` como referencia obligatoria). Nunca blanco puro ni gris azulado (`#E9E9EC` queda prohibido). Bloque de prompt y comprobación en `references/fondo-estudio.md` y `tools/check_background.py`.
 - **Cada familia tiene su propio cuello y etiqueta** (camiseta Calle / sudadera / deportiva): canalé, cinta negra y tipo de etiqueta cambian. Usa la frase y la foto de cuello de la familia correcta (`references/labels-trims.md`, tabla "Cuello y etiqueta por familia"). Nunca copies el cuello de una familia en otra.
 - **Etiqueta = NIDEBLAS, siempre bien escrito** (N-I-D-E-B-L-A-S + talla M). Subir como referencia `assets/etiqueta-cuello-real-talla-M.jpg` (foto real; también hay S, L y XL), pegar el bloque de ortografía de `references/studio-shots-recipe.md` y verificar con OCR (`tools/ocr_labels.swift`). Si sale `NIGEBLAS` u otra variante, se regenera. Generar a **2K**.
 - **Talla M siempre** en camisetas y sudaderas: medidas de la talla M y etiqueta de cuello con la letra M (ver `size-charts.md`).
@@ -47,6 +48,7 @@ Descarga estos archivos y súbelos como imágenes de referencia (character/produ
 | `references/prompt-playbook.md` | Plantillas, negativos, vídeo, QA |
 | `references/photo-references.md` | Índice de fotos reales, qué demuestran y cómo usarlas |
 | `references/studio-shots-recipe.md` | Receta probada de serie de estudio para web (modelo, prompts por vista, entrega) |
+| `references/fondo-estudio.md` | **Fondo único de estudio** (valores, bloque de prompt, cómo aplicarlo, estado de migración) |
 | `references/models-studio.md` | Avatares (Alex, Oscar, Pablo) con prendas NDB: fondo de estudio, outfit por SKU, poses y receta |
 | `assets/` | Fotos reales de cuello/etiqueta: camiseta Calle (S, M, L, XL), sudadera (M, L), deportiva (menta M y lavanda), y apoyo con el texto exacto NIDEBLAS M |
 | `references/open-questions.md` | Huecos y erratas detectadas en la documentación |
