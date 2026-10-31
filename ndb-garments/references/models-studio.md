@@ -30,3 +30,18 @@ Pruebas: `outputs/_pruebas-modelos/` (Alex+TS-06, Oscar+SW-01, Pablo+TS-13).
 - **Pose**: una distinta por foto (mano en bolsillo, paso al caminar, brazos cruzados con cuerpo en 3/4); trasera con cabeza girada.
 - **Orden**: frontal (ancla) → trasera usando la frontal como ref. 1 + grid + placa. Las traseras de camiseta/sudadera no muestran etiqueta (va por dentro); la etiqueta se enseña solo en detalle de cuello (OCR).
 - **Pendiente**: tab del bajo de la sudadera sale con texto ilegible (pasar OCR si se ve de cerca); modelo femenino para SP-11; tres cuartos, media distancia y primer plano; exterior.
+
+## Set completo con modelo (probado: Alex + TS-06, 31/10)
+Orden: 1 frontal (ancla, ref: lámina + frontal v2 + placa + macro de logo del grid) → 2 trasera → 3 tres cuartos → 4 media distancia → 5 primer plano logo (4:5, ref macro del logo) → 6 detalle cuello (4:5, ref foto de cuello de la familia + etiqueta real M + bloque de ortografía + OCR). Todas con la frontal como ref 1. 2K.
+Salida: `outputs/MODELO-<AVATAR>_<SKU>_<slug>/` con `modelo-<avatar>-<prenda>-<vista>.webp`, grid y `alt-text.csv`.
+
+### Ajustes que mejoraron el resultado
+- Expresión: pedir "labios cerrados con asomo de sonrisa", "sonrisa natural con dientes", "mirada fuera de cámara"; variar por vista.
+- Sombra: "CLEARLY VISIBLE soft gray shadow under and behind both feet, falling back and to the right".
+- Ajuste M: "hem at the hip bone, sleeves end mid-bicep, natural folds".
+- Logo: dar el macro del logo como referencia y decir "5 cm, head facing right, thread texture".
+- Cuello con modelo: nuca desde atrás con la mano doblando el cuello hacia abajo para mostrar cinta + etiqueta.
+
+### Checklist QA por imagen (antes de aprobar)
+[ ] cara = lámina del avatar [ ] manos 5 dedos [ ] color y corte de la prenda = grid [ ] logo: tamaño 5 cm, orientación (cabeza a la derecha), técnica [ ] etiqueta NIDEBLAS M (OCR `OK` o recorte visual) [ ] fondo = placa [ ] sombra visible [ ] sin texto inventado [ ] pantalón/calzado según tabla.
+OCR: la frontal y el logo dan `NO` porque no hay etiqueta visible (correcto); el detalle de cuello dio `OK`.
