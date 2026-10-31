@@ -24,3 +24,10 @@ Revisar antes de producir contenido masivo. Lo marcado ⚠ afecta al realismo si
 
 ## Conflictos techpack vs. foto real (resueltos a favor de la foto)
 Hilo azul marino (no cobalto) en TS-05/06, flock en sudaderas, deportiva hombre mint, deportiva mujer lavanda, TS-13 azul rey sin lámina.
+
+## Pendientes tras la corrección de cuellos (31/10)
+1. **Espalda de las deportivas:** el techpack de SP-11 indica un transfer trasero a 2 cm del cuello, pero no hay foto de la espalda ni se sabe qué es. Se generó la espalda lisa. Falta foto trasera real.
+2. **SP-11 (mujer):** posición del logo (3 cm bajo el cuello según el techpack) no verificada con foto real; en la imagen queda algo más baja.
+3. **Flatlay de sudaderas:** los brazos salen algo flexionados en SW-01 y SW-03. Si se quiere recto, repetir con "arms straight along the body".
+4. **Sudadera marino (SW-04):** la etiqueta de cuello es la de las otras sudaderas; falta foto real de esa prenda para confirmar color del hilo y bordado trasero.
+5. **TS-10 Carbono:** el detalle de estampado sale inclinado; repetir con "print straight, horizontal" si se quiere más limpio.
