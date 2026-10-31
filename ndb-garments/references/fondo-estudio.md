@@ -35,6 +35,6 @@ Según el tipo de imagen se añade:
 4. Para exterior (más adelante) este fondo no aplica; se definirá aparte.
 
 ## Estado actual y migración pendiente
-- Los **12 sets con modelo** ya usan este fondo (`OK`).
+- Los **12 sets con modelo** ya usan este fondo: 11 de las 12 frontales dan `OK` con `tools/check_background.py`; la frontal de Alex con TS-08 (`MODELO-ALEX_TS-08…-frontal`) sale algo más clara y fría (`#E7E4E7`). Las 13 frontales de producto dan `FALLA` (frías).
 - Las **13 series de producto** (`outputs/<SKU>_…`: frontal, trasera, lateral, flatlay, detalles, grid) se generaron antes con el fondo frío `#DADEE3`. **No se regeneran ahora** (decisión del equipo: "por ahora lo dejamos así"). Cuando se toquen o se hagan productos nuevos, ya se generan con este fondo. Si se quiere unificar toda la web de golpe, hay que rehacer las 13 series con la placa (≈ 78 imágenes).
 - Productos nuevos y avatares nuevos: **siempre este fondo desde la primera imagen**.
