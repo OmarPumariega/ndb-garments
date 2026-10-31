@@ -55,3 +55,17 @@ work-models/venv/bin/python tools/replace_logo.py --macro logo.jpg --img front.j
 ```
 Revisar el recorte ampliado de cada toma (restos del logo viejo, borde). Funciona con bordado oscuro sobre tela clara (TS-05/06/08/09…). Para logo claro/crema sobre tela oscura (TS-07, TS-13) usar `--mode light` y centro/ventana ajustados (`--win 62` en pecho de frontal/3/4: una ventana mayor coge piel). Probado con Pablo + TS-13. El flock grande de las sudaderas sale consistente sin parche.
 Orden de trabajo: generar el macro del logo primero y aprobarlo; las demás tomas se corrigen con él.
+
+## Reparto de modelos (completado 31/10, prendas masculinas)
+| Modelo | Prendas |
+|---|---|
+| Alex | TS-06 blanca (vaquero índigo), TS-05 beige (vaquero negro), TS-08 celeste (chino arena), SW-02 crema/fucsia (vaquero oscuro) |
+| Oscar | SW-01 crema/cobalto (vaquero azul medio), TS-07 azul marino (vaquero claro), SW-03 celeste (pantalón gris carbón), SP-12 deportiva menta (short negro de running, zapatillas de correr) |
+| Pablo | TS-13 azul rey (chino crema), TS-09 verde salvia (vaquero oscuro), SW-04 azul petróleo (chino negro), TS-10 Carbono (vaquero claro) |
+Pendiente: SP-11 (mujer) con modelo femenina; exterior.
+
+## Aprendido en la tanda de 9 sets
+- `replace_logo.py`: la detección del logo generado usa la **mediana de la ventana** como fondo. Para logos muy oscuros sobre tela clara o media (TS-05, TS-08, TS-09, SP-12) funciona mejor `--mode darkany --thr 90`; `--mode dark` falla en logos finos. Para crema/gris-violeta sobre tela oscura (TS-07, SW-04) `--mode light`. Siempre `--win` pequeño (60–110) y centro exacto: con centro/ventana mal puestos coge piel o cuello.
+- Deportivas: vestir al modelo con short de running, calcetines bajos blancos y zapatillas de correr; poses de ejercicio (manos en cintura, zancada, estiramiento, secándose la frente). Pedir "NO sweat stains / wet patches": si no, salen manchas de sudor en la tela.
+- TS-10 Carbono: el estampado grande (avestruz mecánico) cambia de tamaño y detalle entre tomas; no hay parche automático. El rótulo trasero `NiDeBlas / Born Asturias` se lee bien. SW-04: el wordmark bordado de la nuca sale legible (`NiDeBlas`).
+- Herramienta de cierre: `tools/finalize_model_set.py` (WebP, grid 3x2, alt-text) usa `fix/` si existe.
