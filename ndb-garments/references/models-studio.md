@@ -32,7 +32,8 @@ Pruebas: `outputs/_pruebas-modelos/` (Alex+TS-06, Oscar+SW-01, Pablo+TS-13).
 - **Pendiente**: tab del bajo de la sudadera sale con texto ilegible (pasar OCR si se ve de cerca); modelo femenino para SP-11; tres cuartos, media distancia y primer plano; exterior.
 
 ## Set completo con modelo (probado: Alex + TS-06, 31/10)
-Orden: 1 frontal (ancla, ref: lámina + frontal v2 + placa + macro de logo del grid) → 2 trasera → 3 tres cuartos → 4 media distancia → 5 primer plano logo (4:5, ref macro del logo) → 6 detalle cuello (4:5, ref foto de cuello de la familia + etiqueta real M + bloque de ortografía + OCR). Todas con la frontal como ref 1. 2K.
+Orden: 1 frontal (ancla, ref: lámina + frontal v2 + placa + macro de logo del grid) → 2 trasera → 3 tres cuartos → 4 media distancia → 5 primer plano logo (4:5, ref macro del logo). Todas con la frontal como ref 1. 2K.
+**NO se genera detalle de cuello/etiqueta con modelo** (decisión del equipo 31/10: la toma de la nuca con el cuello doblado a mano se ve falsa/IA). El cuello y la etiqueta se enseñan solo con las fotos de la prenda sola (flatlay y detalle de cuello de la serie de producto).
 Salida: `outputs/MODELO-<AVATAR>_<SKU>_<slug>/` con `modelo-<avatar>-<prenda>-<vista>.webp`, grid y `alt-text.csv`.
 
 ### Ajustes que mejoraron el resultado
@@ -40,8 +41,17 @@ Salida: `outputs/MODELO-<AVATAR>_<SKU>_<slug>/` con `modelo-<avatar>-<prenda>-<v
 - Sombra: "CLEARLY VISIBLE soft gray shadow under and behind both feet, falling back and to the right".
 - Ajuste M: "hem at the hip bone, sleeves end mid-bicep, natural folds".
 - Logo: dar el macro del logo como referencia y decir "5 cm, head facing right, thread texture".
-- Cuello con modelo: nuca desde atrás con la mano doblando el cuello hacia abajo para mostrar cinta + etiqueta.
 
 ### Checklist QA por imagen (antes de aprobar)
 [ ] cara = lámina del avatar [ ] manos 5 dedos [ ] color y corte de la prenda = grid [ ] logo: tamaño 5 cm, orientación (cabeza a la derecha), técnica [ ] etiqueta NIDEBLAS M (OCR `OK` o recorte visual) [ ] fondo = placa [ ] sombra visible [ ] sin texto inventado [ ] pantalón/calzado según tabla.
-OCR: la frontal y el logo dan `NO` porque no hay etiqueta visible (correcto); el detalle de cuello dio `OK`.
+OCR: las fotos de modelo no muestran etiqueta, no se pasa OCR; si algún plano deja ver texto, se verifica.
+
+## Consistencia del logo bordado (aprendido 31/10)
+El avestruz **bordado pequeño** (camisetas Calle, 5 cm) NO sale idéntico en cada toma: el modelo de imagen lo redibuja distinto (patas, cola, grosor) en frontal, 3/4 y media distancia. El macro del logo sí sale perfecto.
+**Solución obligatoria tras generar:** `tools/replace_logo.py` borra el logo generado (inpaint) y pega el logo real extraído del macro aprobado (`--macro` = la imagen de detalle de logo del mismo set), a la misma altura y con `--xscale 0.9` en tres cuartos.
+```bash
+python3 -m venv work-models/venv && work-models/venv/bin/pip install numpy opencv-python-headless pillow
+work-models/venv/bin/python tools/replace_logo.py --macro logo.jpg --img front.jpg --out fix/front.jpg --center X,Y [--win 170 --xscale 0.9]
+```
+Revisar el recorte ampliado de cada toma (restos del logo viejo, borde). Funciona con bordado oscuro sobre tela clara (TS-05/06/08/09…). Para logo claro sobre tela oscura (TS-07, TS-13) hay que adaptar la máscara (pendiente). El flock grande de las sudaderas sale consistente sin parche.
+Orden de trabajo: generar el macro del logo primero y aprobarlo; las demás tomas se corrigen con él.
